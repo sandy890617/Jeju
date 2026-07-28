@@ -1,0 +1,735 @@
+/* =========================================
+   7. DAY 詳細頁面專用 & 多天數擴充組件
+   ========================================= */
+
+/* 詳細頁外容器微調 */
+.scrapbook-container.detail-page {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+/* 返回首頁按鈕（像是一張夾在裡面的小紙條） */
+.back-home-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 0.9rem;
+    background: #e2dbcd;
+    padding: 6px 14px;
+    border-radius: 8px 8px 0 0;
+    margin-left: 10px;
+    border: 2px solid var(--accent-border);
+    border-bottom: none;
+    box-shadow: 2px -2px 5px rgba(0,0,0,0.05);
+    transition: background 0.2s;
+}
+.back-home-btn:hover {
+    background: #d5ccbd;
+}
+
+/* 頂部裝飾紙膠帶 */
+.washi-tape {
+    position: absolute;
+    top: -12px;
+    left: 30%;
+    transform: rotate(-2deg);
+    background-color: rgba(24ce, 228, 236, 0.7);
+    color: var(--text-dark);
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 4px 20px;
+    border-left: 3px dotted rgba(0,0,0,0.15);
+    border-right: 3px dotted rgba(0,0,0,0.15);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Day 頁面專用大標題 */
+.day-header {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.day-badge {
+    background-color: var(--text-dark);
+    color: #fff;
+    font-family: 'Kalam', sans-serif;
+    font-size: 1.2rem;
+    padding: 2px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 8px;
+    transform: rotate(1deg);
+}
+.day-header h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.8rem;
+    margin: 5px 0;
+    color: #2b231f;
+}
+.date-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* -----------------------------------------
+   8. 時間軸行程卡片佈局
+   ----------------------------------------- */
+.timeline-block {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 28px;
+    position: relative;
+    
+    /* 加入以下設定，確保欄位不會無限壓縮卡片 */
+    align-items: flex-start; /* 確保頂部對齊，不被強制拉高 */
+    width: 100%;             /* 確保時間軸整體佔滿 */
+}
+
+/* 時間小貼紙 */
+.time-node {
+    font-family: 'Kalam', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--text-muted);
+    padding: 4px 8px;
+    border-radius: 8px;
+    height: fit-content;
+    transform: rotate(-4deg);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.08);
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+/* 行程卡片主體 */
+.detail-card {
+    position: relative;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(93, 64, 55, 0.06);
+    border: 2.5px solid #d96b27;
+    
+    /* --- 修正寬度關鍵 --- */
+    width: 100%;             /* 強制寬度填滿父容器 */
+    max-width: 480px;        /* 限制最大寬度 */
+    box-sizing: border-box;  /* 確保 padding 不會撐大卡片 */
+    
+    /* 防止卡片在 Flexbox 佈局中被壓縮 */
+    flex-grow: 1;
+    flex-shrink: 0; 
+}
+/* 📍 出發點標籤貼紙 */
+.location-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background-color: #fff4e6;
+    color: #d97706;
+    border: 1px solid #fde68a;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 12px;       /* 核心：與下方按鈕保持距離，絕不重疊 */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* 左上角圓點裝飾 */
+.sticker-dot {
+    background: var(--accent-orange, #ffb380);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+}
+
+/* -----------------------------------------
+   餐廳頁簽組件
+   ----------------------------------------- */
+/* 頁簽按鈕容器 */
+.restaurant-tabs {
+    display: flex;
+    align-items: center;       /* 垂直居中 */
+    gap: 8px;
+    margin-bottom: 16px;
+    padding: 6px 2px;          /* 核心：上下留出空間給陰影與按鈕邊框，才不會被切掉！ */
+    overflow-x: auto;
+    overflow-y: visible;       /* 核心：允許垂直方向完整顯示 */
+    
+    /* 隱藏滾動條 */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.restaurant-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+/* 頁簽按鈕樣式 (小巧精緻版) */
+.tab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 6px 14px;         /* 足夠的內邊距 */
+    border-radius: 20px;
+    font-size: 12px;           /* 文字清晰不擠壓 */
+    line-height: 1;            /* 解決文字偏上或偏下的問題 */
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #6c757d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+    outline: none;
+    flex-shrink: 0;
+    height: auto;              /* 自動適應內容高度，不被硬限制 */
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tab-btn:hover {
+    background-color: #f1f3f5;
+    color: #495057;
+}
+
+/* 被選中的頁簽 */
+.tab-btn.active {
+    background-color: #d96b27;
+    border-color: #d96b27;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(217, 107, 39, 0.3);
+}
+
+/* 內容切換控制 */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -----------------------------------------
+   標題區塊與基本資訊
+   ----------------------------------------- */
+.card-header {
+    display: flex;
+    justify-content: space-between; /* 標題靠左，按鈕群組靠右 */
+    align-items: center; /* 垂直置中 */
+}
+
+.item-title {
+    margin: 0;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #333333;
+    letter-spacing: -0.3px;
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* 👈 控制兩個按鈕之間的間距（可以調整成 6px、10px 等） */
+}
+
+/* 按鈕基本樣式維持原本的即可 */
+.map-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #d96b27;
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 16px;
+    font-size: 0.68rem;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(217, 107, 39, 0.2);
+    flex-shrink: 0;
+}
+
+.map-btn .icon {
+    margin-right: 3px;
+    font-size: 0.7rem;
+}
+
+/* 標籤區域 */
+.tags-wrapper {
+    padding: 0 4px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.spot-tag {
+    font-size: 0.72rem;
+    color: #7e6e65;
+    background: #faf8f6;
+    padding: 2px 6px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.spot-tag.highlight {
+    color: #d96b27;
+    background: #fff8f3;
+    border: 1px solid #fbdac6;
+    padding: 2px 6px;
+}
+
+/* 簡介內文 */
+.item-desc {
+    font-size: 0.82rem;
+    color: #555555;
+    margin: 8px 0 12px 0;
+    padding: 0 4px;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+    text-align: justify;
+}
+
+/* 交通轉乘提示盒 */
+.transport-info {
+    background-color: #faf6f0;
+    border: 1px dashed #c4b5a7;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* 記帳小標籤 */
+.cost-tag {
+    display: inline-block;
+    background-color: var(--accent-yellow);
+    border: 1px solid #e0ca9b;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #7c6435;
+    transform: rotate(1deg);
+}
+
+/* -----------------------------------------
+   美食區塊 (Food Grid & Items)
+   ----------------------------------------- */
+.food-section {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed #f1cfb9;
+}
+
+.food-title {
+    font-size: 0.85rem;
+    color: #444444;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.food-title .icon {
+    font-size: 1rem;
+    margin-right: 4px;
+}
+
+.food-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.food-item {
+    display: flex;
+    align-items: center;
+    background-color: #fffaf7;
+    border: 1px solid #f6e5d8;
+    border-radius: 8px;
+    padding: 6px;
+    gap: 8px;
+    box-shadow: 0 2px 5px rgba(217, 107, 39, 0.04);
+}
+
+.food-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.food-img:hover {
+    transform: scale(1.04);
+}
+
+.food-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+}
+
+.food-name {
+    font-size: 0.82rem;
+    font-weight: bold;
+    color: #d96b27;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tag-location {
+    font-size: 0.65rem;
+    color: #8e8071;
+    background: #ede6df;
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-weight: normal;
+}
+
+.food-desc {
+    font-size: 0.72rem;
+    color: #666666;
+    line-height: 1.3;
+}
+
+/* -----------------------------------------
+   照片燈箱放大 (Image Modal)
+   ----------------------------------------- */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    animation: zoomIn 0.25s ease-out;
+}
+
+.modal-caption {
+    margin-top: 12px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #ffb380;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* -----------------------------------------
+   9. 復古拍立得相框 (Polaroid)
+   ----------------------------------------- */
+.polaroid-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 30px 0;
+}
+.polaroid-photo {
+    background: #ffffff;
+    padding: 12px 12px 24px 12px;
+    border: 1px solid #e3ded8;
+    box-shadow: 4px 6px 15px rgba(140, 118, 98, 0.15);
+    transform: rotate(2.5deg);
+    max-width: 240px;
+    transition: transform 0.3s;
+}
+.polaroid-photo:hover {
+    transform: rotate(-1deg) scale(1.03);
+}
+.polaroid-photo img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border: 1px solid #eeeeee;
+}
+.polaroid-caption {
+    font-family: 'Kalam', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: #5c4f4e;
+    letter-spacing: 1px;
+}
+
+/* -----------------------------------------
+   10. 圖釘手寫備忘錄 (Scrapbook Memo)
+   ----------------------------------------- */
+.scrapbook-memo {
+    background-color: #fffdec;
+    border: 1px solid #eadeb9;
+    box-shadow: 3px 5px 12px rgba(0,0,0,0.05);
+    padding: 15px 20px;
+    margin: 25px 0;
+    position: relative;
+    transform: rotate(0.5deg);
+}
+.scrapbook-memo .pin {
+    position: absolute;
+    top: -14px;
+    left: 46%;
+    font-size: 1.2rem;
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.15));
+}
+.scrapbook-memo h4 {
+    margin: 0 0 8px 0;
+    font-family: 'Noto Serif TC', serif;
+    color: #61533b;
+}
+.scrapbook-memo ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.88rem;
+    color: #6e614a;
+}
+.scrapbook-memo li {
+    margin-bottom: 6px;
+}
+
+/* 頁碼底飾 */
+.footer-page-num {
+    text-align: center;
+    font-family: 'Kalam', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+/* 附近景點外層容器 */
+.nearby-spots-group {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+/* 標題樣式 */
+.nearby-title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 網格排列 (自動適應寬度) */
+.nearby-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+/* 單一景點卡片 (採用 flex 佈局讓圖片在左、文字在右) */
+.nearby-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+/* 景點縮圖 */
+.nearby-img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+/* 文字區塊容器 */
+.nearby-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 景點名稱 */
+.nearby-name {
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: #2c3e50;
+    line-height: 1.2;
+}
+
+/* 交通/距離時間 */
+.nearby-time {
+    font-size: 0.75rem;
+    color: #e67e22;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+/* 景點簡述 */
+.nearby-desc {
+    font-size: 0.7rem;
+    color: #7f8c8d;
+    margin-top: 2px;
+    line-height: 1.2;
+}
+
+
+/* 景點卡片 (橫向 Flex，讓圖片靠最左) */
+.nearby-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background-color: #fdfbf7; /* 米白底色 */
+    border: 1px solid #f2ece1;   /* 淺色邊框 */
+    border-radius: 16px;         /* 圓角 */
+    padding: 14px;
+}
+
+/* 左側圖片 */
+.nearby-img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0; /* 避免圖片被擠壓 */
+}
+
+/* 右側完整內容區 (佔滿剩餘寬度) */
+.nearby-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* 自動填滿右邊寬度 */
+    gap: 4px;
+}
+
+/* 右側頂部列 (標題 + 按鈕列) */
+.nearby-header {
+    display: flex;
+    justify-content: space-between; /* 標題靠左，按鈕群組推到最右邊 */
+    align-items: center;
+    width: 100%;
+}
+
+/* 景點名稱 */
+.nearby-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #2b2b2b;
+}
+
+/* 按鈕群組 (右上角) */
+.nearby-btn-group {
+    display: flex;
+    gap: 6px;
+    margin-left: auto; /* 確保推到最右側 */
+}
+
+/* 按鈕通用樣式 (圓角膠囊) */
+.nearby-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+/* Naver Map 橘色按鈕 */
+.nearby-btn.btn-map {
+    background-color: #e86e25;
+    color: #ffffff;
+}
+
+.nearby-btn.btn-map:hover {
+    background-color: #d05d18;
+}
+
+/* 資料按鈕 */
+.nearby-btn.btn-info {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #ddd;
+}
+
+.nearby-btn.btn-info:hover {
+    background-color: #f5f5f5;
+}
+
+/* 時間與車程 (橘紅色) */
+.nearby-time {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #d9531e;
+}
+
+/* 簡短描述 (灰色) */
+.nearby-desc {
+    font-size: 0.82rem;
+    color: #787878;
+    line-height: 1.3;
+}
