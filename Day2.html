@@ -453,9 +453,9 @@
 			    <div class="restaurant-tabs">
 			    	<button class="tab-btn active" onclick="switchTab(event, 'meat')">烤肉</button>
 			        <button class="tab-btn" onclick="switchTab(event, 'fish')">鰻魚飯</button>
-			        <button class="tab-btn" onclick="switchTab(event, 'time-30m')">海鮮鍋</button>
+			        <button class="tab-btn" onclick="switchTab(event, 'seafood')">海鮮鍋</button>
 			    </div>
-			    
+			    <!-- 烤肉 -->
 			    <div id="meat" class="tab-content active">
 			    	<div class="timeline-block">
 					    <div class="detail-card">
@@ -619,7 +619,7 @@
 					    </div>
 					</div>
 				</div>
-
+				<!-- 鰻魚飯 -->
 		        <div id="fish" class="tab-content">
 					<div class="timeline-block">
 					    <div class="detail-card">
@@ -697,177 +697,183 @@
 					
 					    </div>
 					</div>
+				</div>
+				
+				<!-- 海鮮鍋 -->
+				<div id="seafood" class="tab-content">
+				    <div class="timeline-block">
+				        <div class="detail-card">
+				            <div class="card-header">
+				                <h3 class="item-title">🦞 Noraba(노라바)</h3>
+				                <div class="btn-group">
+				                    <a href="https://naver.me/5T4AR05L" target="_blank" class="map-btn">
+				                        <span class="icon">📍</span>Map
+				                    </a>
+				                    <a href="https://blog.naver.com/jejunoraba" target="_blank" class="map-btn">
+				                        <span class="icon">🌍</span>官網
+				                    </a>
+				                    <a href="https://www.instagram.com/reel/DVgStKACW08/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" target="_blank" class="map-btn">
+				                        <span class="icon">📱</span>IG
+				                    </a>
+				                </div>
+				            </div>
+				            <div class="tags-wrapper" style="margin-top: 8px;">
+				                <div class="spot-tag highlight">
+				                    <span>⏰</span><span>10:00 - 17:00<small>(14:00-15:00休息 / 16:30 最後點餐)</small></span>
+				                </div>
+				            </div>
+				           <div class="nearby-grid" style="margin-top: 10px;">
+							    <div class="nearby-item">
+									<!-- 使用原本海鮮拉麵的圖片 -->
+							        <img src="img/西區/Noraba/外觀.jfif" alt="Noraba" class="nearby-img" />
+							        
+							        <div class="nearby-content">
+							            <div class="food-name">Noraba (노라바海鮮拉麵)</div>
+							            <div class="food-desc" style="margin-top: 4px;">
+							                涯月海岸公路上的超人氣名店！以「看海吃拉麵」聞名，主打鋪滿整碗的豪華海鮮，是濟州島視覺與味覺的雙重享受。
+							            </div>
+							        </div>
+							    </div>
+							</div>
 
-		        </div>
+							<!-- 豐富的特色亮點區塊 -->
+				            <div class="food-section">
+							    <div class="food-title">
+							        <span class="icon">✨</span>
+							        <strong>招牌必點與特色亮點：</strong>
+							    </div>
+
+							    <div class="food-grid">
+							        <div class="food-item">
+							        	<img src="img/西區/Noraba/章魚海鮮拉麵.png" alt="經典海鮮拉麵" class="food-img" />
+							            <div class="food-text">
+							                <div class="food-name">🦑 整隻章魚海鮮拉麵 (문어라면)</div>
+							                <div class="food-desc">每日限量供應！浮誇地擺放整隻水煮章魚，搭配活鮑魚、螃蟹、蝦子，湯頭吸滿海鮮甜味。</div>
+							            </div>
+							        </div>
+							
+							        <div class="food-item">
+							        	<img src="img/西區/Noraba/海鮮拉麵.png" alt="經典海鮮拉麵" class="food-img" />
+							            <div class="food-text">
+							                <div class="food-name">🍲 經典海鮮拉麵 (해물라면)</div>
+							                <div class="food-desc">CP值極高！包含螃蟹、鮑魚、蝦子的豪華基本款。湯頭可自選純味、中辣、大辣。</div>
+							            </div>
+							        </div>
+									<div class="food-item">
+							        	<img src="img/西區/Noraba/水煮章魚.png" alt="水煮章魚" class="food-img" />
+							            <div class="food-text">
+							                <div class="food-name">🐙 水煮章魚</div>
+							                <div class="food-desc">肥厚多汁、口感勁道、鮮嫩可口</div>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+
+							<!-- 豐富的用餐貼士區塊 -->
+							<div class="tips-section" style="margin-top: 12px;">
+							    <div class="spot-tips" style="font-size: 0.78rem; color: #666; background: #faf8f6; padding: 8px 10px; border-radius: 8px;">
+							        <span class="icon">💡</span>
+							        <strong>排隊貼士：</strong>屬超級熱門店，建議開店前或非用餐尖峰抵達。需現場抽號碼牌（可試用CatchTable APP或現場機器），過號需重新排隊。
+							    </div>
+							</div>
+				        </div>
+				    </div>
 				</div>
 
-		        <div id="time-30m" class="tab-content">
-					<div class="timeline-block">
-					    <div class="detail-card">
-					        <div class="card-header">
-					            <h3 class="item-title">🎡 濟州神話世界</h3>
-					            <div class="btn-group">
-					                <a href="https://naver.me/xR0S6I4C" target="_blank" class="map-btn">
-					                    <span class="icon">📍</span>Map
-					                </a>
-					                <a href="https://www.shinwhaworld.com/" target="_blank" class="map-btn">
-					                    <span class="icon">🌍</span>官網
-					                </a>
-					            </div>
-					        </div>
-					        <div class="tags-wrapper" style="margin-top: 8px;">
-					            <div class="spot-tag highlight">
-					                <span>⏰</span><span>主題公園 10:00 - 20:00</span>
-					            </div>
-					            <div class="spot-tag highlight">
-					                <span>⏰</span><span>水上樂園 10:00 - 18:00</span>
-					            </div>
-					            <div class="spot-tag highlight">
-					                <span>⏱️</span><span>建議停留半天至全天</span>
-					            </div>
-					        </div>
-					
-					        <!-- 景點介紹主卡片 -->
-					        <div class="nearby-grid" style="margin-top: 10px;">
-					            <div class="nearby-item">
-					                <img src="img/西區/shinwha_world.jpg" alt="濟州神話世界" class="nearby-img" />
-					                
-					                <div class="nearby-content">
-					                    <div class="food-name">제주신화월드</div>
-					                    <div class="food-desc" style="margin-top: 4px;">
-					                        濟州島規模最大的綜合度假村！結合知名動畫「爆笑蟲子 LARVA」主題公園、水上樂園、美食街與免稅購物，好玩又好逛。
-					                    </div>
-					                </div>
-					            </div>
-					        </div>
-					
-					        <!-- 必玩亮點清單區塊 -->
-					        <div class="food-section">
-					            <div class="food-title">
-					                <span class="icon">✨</span>
-					                <strong>三大核心園區與設施：</strong>
-					            </div>
-					
-					            <div class="food-grid">
-					                <!-- 亮點 1 -->
-					                <div class="food-item">
-					                    <div class="food-text">
-					                        <div class="food-name">🎢 神話主題公園 (Theme Park)</div>
-					                        <div class="food-desc">以 LARVA 爆笑蟲子為主題，打造歡樂世界、奧斯卡新世界等區域，必玩 360 度旋轉過山車！</div>
-					                    </div>
-					                </div>
-					
-					                <!-- 亮點 2 -->
-					                <div class="food-item">
-					                    <div class="food-text">
-					                        <div class="food-name">🏊 神話水上樂園 (Water Park)</div>
-					                        <div class="food-desc">濟州最大水上樂園，包含大型波浪池、超長造浪河與高空刺激滑水道，夏天放電消暑首選。</div>
-					                    </div>
-					                </div>
-					
-					                <!-- 亮點 3 -->
-					                <div class="food-item">
-					                    <div class="food-text">
-					                        <div class="food-name">🛍️ 神話商業街 & 餐廳總覽</div>
-					                        <div class="food-desc">園區內設有地下美食街、YG Republic 韓式燒肉，以及新世界免稅店與各式潮流品牌。</div>
-					                    </div>
-					                </div>
-					            </div>
-					        </div>
-					    </div>
-					</div>
-		        </div>
 		    </div>
-		    
-		    <!-- Hello kitty -->
-		    <div class="timeline-block">
-			    <div class="detail-card">
-			
-			        <div class="card-header">
-			            <h3 class="item-title">🎀 濟州 Hello Kitty Island (헬로키티아일랜드)</h3>
-			            <div class="btn-group">
-			                <a href="https://naver.me/5vI8Z49l" target="_blank" class="map-btn">
-			                    <span class="icon">📍</span>Map
-			                </a>
-			                <a href="https://www.hellokittyisland.co.kr/" target="_blank" class="map-btn">
-			                    <span class="icon">🌍</span>官網
-			                </a>
-			                <a href="https://www.instagram.com/hellokittyisland_jeju/" target="_blank" class="map-btn">
-			                    <span class="icon">📱</span>IG
-			                </a>
-			            </div>
-			        </div>
-			
-			        <div class="tags-wrapper" style="margin-top: 8px;">
-			            <div class="spot-tag highlight">
-			                <span>⏰</span><span>09:00 - 18:00 <small style="color: #666;">(最後入場 17:00)</small></span>
-			            </div>
-			            <div class="spot-tag highlight">
-			                <span>🎀</span><span>全台唯一 Hello Kitty 超萌粉紅主題城堡博物館</span>
-			            </div>
-			        </div>
-			
-			        <!-- 景點介紹主卡片 -->
-			        <div class="nearby-grid" style="margin-top: 10px;">
-			            <div class="nearby-item">
-			                <img src="img/西區/Hello.jfif" alt="Hello" class="nearby-img" />
-			                
-			                <div class="nearby-content">
-			                    <div class="food-name">헬로키티아일랜드 (Hello Kitty Island)</div>
-			                    <div class="food-desc" style="margin-top: 4px;">
-			                        滿滿粉紅泡泡的三層樓三麗鷗主題館！包含 Hello Kitty 客廳、臥室、音樂繪畫館、3D 影院與空中花園，充斥各式超萌造景與限定周邊。
-			                    </div>
-			                </div>
-			            </div>
-			        </div>
-			
-			        <!-- 特色亮點 -->
-			        <div class="food-section">
-			            <div class="food-title">
-			                <span class="icon">✨</span>
-			                <strong>館內亮點與必拍推薦：</strong>
-			            </div>
-			
-			            <div class="food-grid">
-			                <div class="food-item">
-			                    <div class="food-text">
-			                        <div class="food-name">🏰 1F 故事城堡與夢幻客廳</div>
-			                        <div class="food-desc">巨大粉紅城堡城堡塔、Hello Kitty 家族歷史介紹，以及全粉紅裝潢的 Kitty 小屋。</div>
-			                    </div>
-			                </div>
-			
-			                <div class="food-item">
-			                    <div class="food-text">
-			                        <div class="food-name">☕ 2F Kitty 主題咖啡廳 & 體驗館</div>
-			                        <div class="food-desc">必點 Hello Kitty 造型拿鐵拉花與甜點！周邊還有美樂蒂、酷洛米等好友展示區。</div>
-			                    </div>
-			                </div>
-			
-			                <div class="food-item">
-			                    <div class="food-text">
-			                        <div class="food-name">🎬 3F 3D 影院與戶外空中花園</div>
-			                        <div class="food-desc">免費觀看 3D 迷你動畫短片，頂樓花園還有大型 Hello Kitty 造型迷宮與綠地。</div>
-			                    </div>
-			                </div>
-			            </div>
-			        </div>
-			
-			        <!-- 💡 多項貼心提醒 -->
-			        <div class="tips-section" style="margin-top: 12px;">
-			            <div class="spot-tips" style="font-size: 0.78rem; color: #555; background: #faf8f6; padding: 10px 12px; border-radius: 10px; border: 1px dashed #e2d8ce;">
-			                <div style="font-weight: bold; color: #d96b27; margin-bottom: 6px; display: flex; align-items: center; gap: 4px;">
-			                    <span class="icon">💡</span> 貼心小提醒：
-			                </div>
-			                <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
-			                    <li><strong>🎟️ 門票優惠：</strong>建議出發前先在 Klook / KKday 預訂電子門票，現場出示 QR Code 換票通常比現場買更划算！</li>
-			                    <li><strong>📷 建議停留時間：</strong>約 1.5 ~ 2 小時，全館幾乎都是室內，非常適合做為雨天或炎熱中午的備案景點。</li>
-			                </ul>
-			            </div>
-			        </div>
-			
-			    </div>
-			</div>
-		    <div class="timeline-block">
+		</div>
+		
+		<!-- Hello kitty -->
+	    <div class="timeline-block">
+		    <div class="detail-card">
+		
+		        <div class="card-header">
+		            <h3 class="item-title">🎀 濟州 Hello Kitty Island (헬로키티아일랜드)</h3>
+		            <div class="btn-group">
+		                <a href="https://naver.me/5vI8Z49l" target="_blank" class="map-btn">
+		                    <span class="icon">📍</span>Map
+		                </a>
+		                <a href="https://www.hellokittyisland.co.kr/" target="_blank" class="map-btn">
+		                    <span class="icon">🌍</span>官網
+		                </a>
+		                <a href="https://www.instagram.com/hellokittyisland_jeju/" target="_blank" class="map-btn">
+		                    <span class="icon">📱</span>IG
+		                </a>
+		            </div>
+		        </div>
+		
+		        <div class="tags-wrapper" style="margin-top: 8px;">
+		            <div class="spot-tag highlight">
+		                <span>⏰</span><span>09:00 - 18:00 <small style="color: #666;">(最後入場 17:00)</small></span>
+		            </div>
+		            <div class="spot-tag highlight">
+		                <span>🎀</span><span>全台唯一 Hello Kitty 超萌粉紅主題城堡博物館</span>
+		            </div>
+		        </div>
+		
+		        <!-- 景點介紹主卡片 -->
+		        <div class="nearby-grid" style="margin-top: 10px;">
+		            <div class="nearby-item">
+		                <img src="img/西區/Hello.jfif" alt="Hello" class="nearby-img" />
+		                
+		                <div class="nearby-content">
+		                    <div class="food-name">헬로키티아일랜드 (Hello Kitty Island)</div>
+		                    <div class="food-desc" style="margin-top: 4px;">
+		                        滿滿粉紅泡泡的三層樓三麗鷗主題館！包含 Hello Kitty 客廳、臥室、音樂繪畫館、3D 影院與空中花園，充斥各式超萌造景與限定周邊。
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		
+		        <!-- 特色亮點 -->
+		        <div class="food-section">
+		            <div class="food-title">
+		                <span class="icon">✨</span>
+		                <strong>館內亮點與必拍推薦：</strong>
+		            </div>
+		
+		            <div class="food-grid">
+		                <div class="food-item">
+		                    <div class="food-text">
+		                        <div class="food-name">🏰 1F 故事城堡與夢幻客廳</div>
+		                        <div class="food-desc">巨大粉紅城堡城堡塔、Hello Kitty 家族歷史介紹，以及全粉紅裝潢的 Kitty 小屋。</div>
+		                    </div>
+		                </div>
+		
+		                <div class="food-item">
+		                    <div class="food-text">
+		                        <div class="food-name">☕ 2F Kitty 主題咖啡廳 & 體驗館</div>
+		                        <div class="food-desc">必點 Hello Kitty 造型拿鐵拉花與甜點！周邊還有美樂蒂、酷洛米等好友展示區。</div>
+		                    </div>
+		                </div>
+		
+		                <div class="food-item">
+		                    <div class="food-text">
+		                        <div class="food-name">🎬 3F 3D 影院與戶外空中花園</div>
+		                        <div class="food-desc">免費觀看 3D 迷你動畫短片，頂樓花園還有大型 Hello Kitty 造型迷宮與綠地。</div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		
+		        <!-- 💡 多項貼心提醒 -->
+		        <div class="tips-section" style="margin-top: 12px;">
+		            <div class="spot-tips" style="font-size: 0.78rem; color: #555; background: #faf8f6; padding: 10px 12px; border-radius: 10px; border: 1px dashed #e2d8ce;">
+		                <div style="font-weight: bold; color: #d96b27; margin-bottom: 6px; display: flex; align-items: center; gap: 4px;">
+		                    <span class="icon">💡</span> 貼心小提醒：
+		                </div>
+		                <ul style="margin: 0; padding-left: 18px; line-height: 1.6;">
+		                    <li><strong>🎟️ 門票優惠：</strong>建議出發前先在 Klook / KKday 預訂電子門票，現場出示 QR Code 換票通常比現場買更划算！</li>
+		                    <li><strong>📷 建議停留時間：</strong>約 1.5 ~ 2 小時，全館幾乎都是室內，非常適合做為雨天或炎熱中午的備案景點。</li>
+		                </ul>
+		            </div>
+		        </div>
+		
+		    </div>
+		</div>	
+	
+		<!-- 麵包店 -->
+		<div class="timeline-block">
 			<div class="detail-card">
 				<div class="food-title">
 			        <span class="icon" >☕</span>
@@ -983,7 +989,9 @@
 				</div>
 			</div>
 		</div>
-		    <div class="timeline-block">
+
+		<!-- 晚上咖啡廳 -->
+		<div class="timeline-block">
 		    <div class="detail-card">
 		    	<div class="food-title">
 			        <span class="icon" >☕</span>
@@ -1155,17 +1163,16 @@
 				            </ul>
 				        </div>
 				    </div>
-				
 				</div>
 			</div>
 		</div>
+	</div>
 </div>
-
-<!-- 圖片放大燈箱 Modal 結構 -->
-<div id="imageModal" class="image-modal">
-    <span class="modal-close">&times;</span>
-    <img class="modal-content" id="modalImg" alt="放大圖片">
-    <div id="modalCaption" class="modal-caption"></div>
-</div>
+	<!-- 圖片放大燈箱 Modal 結構 -->
+	<div id="imageModal" class="image-modal">
+	    <span class="modal-close">&times;</span>
+	    <img class="modal-content" id="modalImg" alt="放大圖片">
+	    <div id="modalCaption" class="modal-caption"></div>
+	</div>
 </body>
 </html>
