@@ -1,0 +1,353 @@
+/* =========================================
+   旅遊日記/手帳剪貼風 - 完整修正版 CSS 樣式表
+   ========================================= */
+
+/* 引入有手寫感與溫柔氣息的字體 */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Noto+Serif+TC:wght@600;900&display=swap');
+
+/* 定義你的手帳配色變數 */
+:root {
+    --bg-main: #f5efe6;        /* 網頁底色：燕麥奶 */
+    --paper-color: #fdfbf9;    /* 手帳內頁：復古奶油紙色 */
+    --text-dark: #4a3e3d;      /* 主文字：深可可色 */
+    --text-muted: #8c7662;     /* 副文字：溫柔茶褐 */
+    
+    /* HTML 所需的糖果色彩變數 */
+    --accent-pink: #fce4ec;    /* 草莓大福粉 */
+    --accent-blue: #e1f5fe;    /* 蘇打汽水藍 */
+    --accent-yellow: #fff9db;  /* 蜂蜜柚子黃 */
+    --accent-border: #8c7662;  /* 剪貼線條色 */
+}
+
+/* 全域樣式優化 */
+body {
+    background-color: var(--bg-main);
+    font-family: 'Kalam', 'Noto Serif TC', serif;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 20px 10px;
+    line-height: 1.6;
+}
+
+
+/* 固定在畫面的底部導覽列 */
+.main-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 0;
+    
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px); /* 質感毛玻璃效果 */
+    border-top: 1px solid #f0f0f0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    
+    z-index: 999; /* 確保選單不會被卡片擋住 */
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+/* 當前頁面 / 懸停樣式 */
+.nav-item:hover, .nav-item.active {
+    background-color: #ff9d6c; /* 濟州橘色系 */
+    color: #fff;
+}
+
+/* ⚠️ 重要：避免最後一個 Day 卡片被底部選單遮住 */
+.scrapbook-container {
+    padding-bottom: 80px !important;
+}
+/* -----------------------------------------
+   1. 頂部頁籤切換按鈕 (手撕紙膠帶感)
+   ----------------------------------------- */
+.trip-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 20px auto;
+    max-width: 520px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 8px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--text-muted);
+    background-color: var(--paper-color);
+    border: none;
+    /* 核心：不規則手剪圓角 */
+    border-radius: 12px 40px 15px 35px; 
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    box-shadow: 0 0 0 2px rgba(140, 118, 98, 0.2), 2px 4px 8px rgba(140, 118, 98, 0.1);
+    transform: rotate(-1.5deg);
+    position: relative;
+}
+
+/* 按鈕滑過效果 */
+.tab-btn:hover {
+    color: #332a24;
+    transform: rotate(1deg) translateY(-2px);
+    box-shadow: 0 0 0 2px var(--text-muted), 3px 6px 12px rgba(140, 118, 98, 0.15);
+}
+
+/* 被選中的按鈕 */
+.tab-btn.active {
+    background-color: #ffffff;
+    color: #332a24;
+    border-radius: 35px 15px 40px 12px; 
+    transform: rotate(2deg) translateY(-3px);
+    box-shadow: 0 0 0 3px var(--text-muted), 4px 8px 15px rgba(92, 75, 60, 0.2);
+}
+
+/* 選中狀態左上角的「小圖釘」裝飾 */
+.tab-btn.active::before {
+    content: "📌";
+    position: absolute;
+    top: -12px;
+    left: 4px;
+    font-size: 1.3rem;
+    z-index: 10;
+    filter: drop-shadow(2px 3px 2px rgba(0,0,0,0.15));
+}
+
+/* -----------------------------------------
+   2. 手帳外殼與方格內頁容器
+   ----------------------------------------- */
+.scrapbook-container {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.trip-content {
+    display: none; /* 【修正】預設完全隱藏，避免兩個內容同時跑出來 */
+    background-color: var(--paper-color);
+    
+    /* 核心：手帳方格紙印刷紋理 */
+    background-image: 
+        linear-gradient(rgba(140, 118, 98, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(140, 118, 98, 0.05) 1px, transparent 1px);
+    background-size: 18px 18px;
+    
+    border-radius: 8px;
+    padding: 35px 24px;
+    box-shadow: 0 10px 30px rgba(140, 118, 98, 0.12), 0 1px 3px rgba(0,0,0,0.05);
+    position: relative;
+    flex-direction: column; 
+}
+
+/* 【修正】當 active 時才同時啟用 display: flex 與分頁轉場動畫 */
+.trip-content.active {
+    display: flex; 
+    animation: pageFlip 0.4s ease-out forwards;
+}
+
+/* -----------------------------------------
+   3. 手帳頂部標題區區塊
+   ----------------------------------------- */
+.header-section {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed #e6ded6; /* 手撕線 */
+}
+
+.header-section h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 0 0 2px 0;
+    letter-spacing: 2px;
+    color: #2b231f;
+}
+
+.header-section p:nth-of-type(1) {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.header-section p:nth-of-type(2) {
+    font-size: 0.95rem;
+    color: #a69282;
+    margin: 4px 0 0 0;
+}
+
+/* -----------------------------------------
+   4. 強化版：Day 獨立行程卡片
+   ----------------------------------------- */
+.day-card {
+    background-color: #ffffff;
+    border: 2px solid var(--accent-border);
+    border-radius: 16px;
+    padding: 25px 20px 20px 20px;
+    margin-bottom: 30px;
+    position: relative;
+    width: 90%; /* 留空間做左右錯落排版 */
+    box-sizing: border-box;
+    box-shadow: 4px 4px 0px #e6ded6, 5px 5px 15px rgba(140, 118, 98, 0.1);
+    transform: rotate(0.5deg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 當卡片被 <a> 標籤包覆（Day 1）時或 hover 時的滑過增強 */
+a .day-card:hover, .day-card:hover {
+    transform: scale(1.02) rotate(-0.5deg);
+    box-shadow: 5px 5px 0px #d1c2b4, 8px 8px 18px rgba(140, 118, 98, 0.15);
+}
+
+/* Day 標籤貼紙 */
+.day-label {
+    position: absolute;
+    top: -14px;
+    left: 20px;
+    background-color: var(--text-muted);
+    color: #ffffff;
+    font-family: 'Kalam', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 2px 14px;
+    border-radius: 20px 8px 20px 8px;
+    box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 卡片行程大標 */
+.day-card h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin: 10px 0 15px 0;
+    color: #332a24;
+    display: inline-block;
+    background: linear-gradient(transparent 60%, #f5e2d3 60%); /* 螢光筆塗鴉感 */
+}
+
+/* -----------------------------------------
+   5. 手帳手繪小組件 (打勾、地圖、便利貼)
+   ----------------------------------------- */
+
+/* 地圖展示區 */
+.map-deco {
+    background-color: #faf6f0;
+    border: 1px dashed #d1c2b4;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    position: relative;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 待辦事項清單 */
+.itinerary-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.98rem;
+}
+
+/* 模擬手繪複選框 */
+.checkbox {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #a69080;
+    border-radius: 4px;
+    position: relative;
+    flex-shrink: 0;
+    background: #fff;
+}
+
+/* 已打勾狀態：用 CSS 畫出一個可愛的手寫勾勾 */
+.checkbox.checked::after {
+    content: "✓";
+    position: absolute;
+    top: -6px;
+    left: 1px;
+    color: #c2185b; /* 亮眼的打勾紅 */
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Kalam', sans-serif;
+}
+
+/* 已打勾項目的文字淡淡的刪除線效果 */
+.checkbox.checked + div {
+    color: #8a7a78;
+    text-decoration: line-through rgba(194, 24, 91, 0.4) 1px;
+}
+
+/* 裝飾性圓點貼紙 */
+.sticker-dot {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 24px;
+    height: 24px;
+    background: var(--accent-pink);
+    border-radius: 50%;
+    opacity: 0.85;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.08);
+    z-index: 2;
+}
+
+
+
+/* 筆記便利貼 */
+.memo-box {
+    background-color: var(--accent-yellow);
+    border-left: 4px solid #fab005;
+    padding: 10px 14px;
+    margin-top: 15px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.04);
+    transform: rotate(-0.5deg);
+}
+
+/* 浮動手繪小圖示 */
+.illustration {
+    position: absolute;
+    font-size: 1.6rem;
+    z-index: 5;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.1));
+}
+
+/* 固定定位的小裝飾 */
+.deco-1 { top: 15px; right: 20px; transform: rotate(15deg); }
+.deco-2 { bottom: 80px; left: 10px; transform: rotate(-10deg); }
+
+/* -----------------------------------------
+   6. 轉場動畫
+   ----------------------------------------- */
+@keyframes pageFlip {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

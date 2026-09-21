@@ -1,0 +1,604 @@
+/* =========================================================
+   濟州島旅行手帳 (Jeju Scrapbook) - 雜誌風精緻手帳版 CSS
+   ========================================================= */
+
+/* 引入字體：手寫手帳感 + 優雅襯線與無襯線 */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Noto+Serif+TC:wght@600;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+/* -----------------------------------------
+   1. 顏色與視覺變數 (質感燕麥奶 & 濟州暖柑橘)
+   ----------------------------------------- */
+:root {
+    --bg-page: #fbf7f2;          /* 全局底色：輕柔燕麥奶 */
+    --card-bg: #ffffff;          /* 卡片底色：純淨暖白 */
+    --panel-bg: #fffdfa;         /* 手帳頁面：奶油紙色 */
+    
+    --primary-orange: #ff782e;   /* 濟州鮮柑橘 */
+    --primary-gradient: linear-gradient(135deg, #ff8c42 0%, #ff6b2b 100%);
+    --accent-yellow: #fff3db;    /* 暖柚便利貼 */
+    --accent-pink: #ffeae8;      /* 柔粉標籤 */
+    
+    --text-main: #2d2621;        /* 主標題：深焙焦糖黑 */
+    --text-body: #4a4038;        /* 正文：溫潤摩卡灰褐 */
+    --text-sub: #8c7e73;         /* 副文字：淺焙暖灰 */
+    --border-soft: #ede4dc;      /* 柔和分割線 */
+    
+    --shadow-sm: 0 2px 8px rgba(168, 140, 118, 0.08);
+    --shadow-md: 0 8px 24px rgba(168, 140, 118, 0.12);
+    --shadow-hover: 0 12px 30px rgba(168, 140, 118, 0.18);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+}
+
+/* -----------------------------------------
+   2. 全域基礎樣式
+   ----------------------------------------- */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-page);
+    /* 點狀手帳手繪背景紋理 */
+    background-image: radial-gradient(#dfd4c8 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+    color: var(--text-body);
+    margin: 0;
+    padding: 0;
+    line-height: 1.65;
+}
+
+/* -----------------------------------------
+   3. 頂部 Header & 導覽列
+   ----------------------------------------- */
+.jeju-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(251, 247, 242, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(237, 228, 220, 0.8);
+    box-shadow: 0 4px 20px rgba(168, 140, 118, 0.05);
+}
+
+.header-banner {
+    text-align: center;
+    padding: 14px 16px 8px;
+}
+
+.trip-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff0e6;
+    color: #ff6b2b;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 4px;
+    border: 1px solid #ffd8bf;
+}
+
+.trip-title {
+    margin: 2px 0 0;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+.trip-dates {
+    margin: 2px 0 0;
+    font-size: 0.8rem;
+    font-family: 'Kalam', cursive;
+    color: var(--text-sub);
+    letter-spacing: 0.5px;
+}
+
+/* 頂部橫向選單 (journal-nav) */
+.journal-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px 12px;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.journal-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 15px;
+    border-radius: 24px;
+    background: #ffffff;
+    border: 1px solid var(--border-soft);
+    color: var(--text-sub);
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-tab:hover {
+    color: var(--primary-orange);
+    border-color: #ffd8bf;
+    transform: translateY(-2px);
+}
+
+.nav-tab.active {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(255, 120, 46, 0.35);
+    transform: translateY(-1px);
+}
+
+.nav-tab-info {
+    border-style: dashed;
+    background: #fffcf8;
+}
+
+/* -----------------------------------------
+   4. 主容器與手帳畫布 (scrapbook-container / tab-panel)
+   ----------------------------------------- */
+.main-wrapper {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 16px 14px 80px;
+}
+
+.scrapbook-container {
+    width: 100%;
+}
+
+.tab-panel {
+    background: var(--panel-bg);
+    border-radius: 24px;
+    padding: 24px 18px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative;
+    backdrop-filter: blur(8px);
+}
+
+/* 區域標題膠帶貼紙裝飾 */
+.panel-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.panel-tag {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--text-main);
+    background: #f4ece2;
+    padding: 4px 22px;
+    border-radius: 30px;
+    letter-spacing: 2px;
+    border: 1px dashed #d9ccbe;
+    position: relative;
+}
+
+/* -----------------------------------------
+   5. 篩選按鈕群組 (filter-btn-group)
+   ----------------------------------------- */
+.filter-btn-group {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 2px 14px 2px;
+    margin-bottom: 12px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.filter-btn-group::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    padding: 6px 14px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid var(--border-soft);
+    color: var(--text-sub);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.filter-btn:hover {
+    background: #faf4ee;
+    color: var(--text-main);
+}
+
+.filter-btn.active {
+    background: var(--text-main);
+    color: #ffffff;
+    border-color: var(--text-main);
+    box-shadow: 0 3px 10px rgba(45, 38, 33, 0.2);
+}
+
+/* -----------------------------------------
+   6. 景點卡片 (check-item) - 核心精緻化
+   ----------------------------------------- */
+.trip-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.check-item {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 24px 20px 20px;
+    position: relative;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.check-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: #ffd8bf;
+}
+
+/* 景點名稱標題 */
+.check-item strong {
+    display: block;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.28rem;
+    font-weight: 900;
+    color: var(--text-main);
+    letter-spacing: -0.3px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+/* 景點介紹內文 */
+.check-item p {
+    font-size: 0.92rem;
+    color: var(--text-body);
+    line-height: 1.75;
+    margin: 14px 0;
+    text-align: justify;
+}
+
+/* -----------------------------------------
+   7. 標籤貼紙 (item-tags / tag)
+   ----------------------------------------- */
+.item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.tag {
+    font-size: 0.73rem;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 6px;
+    background: #f6f0e8;
+    color: #6d5d52;
+}
+
+.tag-must {
+    background: var(--accent-pink);
+    color: #e04f44;
+    font-weight: 700;
+    border: 1px solid #ffd4d0;
+}
+
+/* -----------------------------------------
+   8. 地圖按鈕組 (map-actions / btn-map)
+   ----------------------------------------- */
+.map-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 14px;
+}
+
+.btn-map {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 13px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+}
+
+.btn-naver {
+    background: #03c75a;
+    color: #ffffff;
+    border: 1px solid #02b350;
+}
+
+.btn-naver:hover {
+    background: #02b350;
+    box-shadow: 0 4px 10px rgba(3, 199, 90, 0.3);
+    transform: translateY(-1.5px);
+}
+
+.btn-google {
+    background: #ffffff;
+    color: #4b5563;
+    border: 1px solid #e5e7eb;
+}
+
+.btn-google:hover {
+    background: #f9fafb;
+    color: #111827;
+    border-color: #d1d5db;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1.5px);
+}
+
+/* -----------------------------------------
+   9. 拍立得照片展示區 (item-gallery)
+   ----------------------------------------- */
+.item-gallery {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 8px 4px 16px 4px;
+    margin: 12px 0 8px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.item-gallery::-webkit-scrollbar {
+    height: 5px;
+}
+
+.item-gallery::-webkit-scrollbar-thumb {
+    background: #ded5cb;
+    border-radius: 10px;
+}
+
+/* 拍立得相框質感 */
+.item-gallery img {
+    width: 125px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #ffffff;
+    padding: 5px 5px 12px 5px; /* 底部刻意留白，模擬相紙 */
+    border: 1px solid #ede4dc;
+    box-shadow: 0 4px 12px rgba(168, 140, 118, 0.12);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.item-gallery img:nth-child(odd) {
+    transform: rotate(-1.5deg);
+}
+
+.item-gallery img:nth-child(even) {
+    transform: rotate(1.5deg);
+}
+
+.item-gallery img:hover {
+    transform: translateY(-4px) scale(1.05) rotate(0deg);
+    box-shadow: 0 8px 20px rgba(168, 140, 118, 0.22);
+    z-index: 2;
+}
+
+/* -----------------------------------------
+   10. 旅行備忘錄便利貼 (item-details)
+   ----------------------------------------- */
+.item-details {
+    background: var(--accent-yellow);
+    border-radius: var(--radius-md);
+    padding: 16px 16px 14px 16px;
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: #4a3e35;
+    border: 1px solid #fae1af;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(230, 195, 140, 0.15);
+}
+
+.item-details > div {
+    margin-bottom: 7px;
+    line-height: 1.55;
+}
+
+.item-details strong {
+    color: #33271f;
+    font-family: inherit;
+    font-size: inherit;
+    display: inline;
+}
+
+.item-details ul {
+    margin: 6px 0 0 0;
+    padding-left: 20px;
+}
+
+.item-details li {
+    margin-bottom: 5px;
+    line-height: 1.55;
+}
+
+/* -----------------------------------------
+   11. 圖片點擊放大彈窗 (image-modal)
+   ----------------------------------------- */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 24, 20, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.image-modal.active {
+    display: flex;
+    animation: fadeIn 0.25s ease-out;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 92%;
+    max-height: 85vh;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    border-radius: 12px;
+    border: 6px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    display: block;
+}
+
+.modal-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    background: #ffffff;
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.modal-close:hover {
+    transform: scale(1.1);
+}
+
+/* -----------------------------------------
+   12. 轉場動畫
+   ----------------------------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pageFlip {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 預設隱藏 Modal */
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 當 JS 加上 .show 時顯示 */
+.image-modal.show {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* 預設隱藏所有面板 */
+.tab-panel {
+    display: none;
+}
+
+/* 只有加上 active 的面板才會顯示 */
+.tab-panel.active {
+    display: block;
+}
+
+/* 右上角貼紙效果 */
+.sticker-pass {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: #ff6b4a; /* 暖橘紅色貼紙底色 */
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(255, 107, 74, 0.35); /* 貼紙浮起陰影 */
+  transform: rotate(3deg); /* 微傾斜增加貼紙質感 */
+  pointer-events: none; /* 避免擋住點擊 */
+  z-index: 2;
+  letter-spacing: 0.5px;
+}
