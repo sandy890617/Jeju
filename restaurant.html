@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>餐廳總覽</title>
+  <link rel="stylesheet" href="CSS/restaurant.css">
+</head>
+<body>
+
+  <main class="container">
+    <h1>美食餐廳總覽</h1>
+
+    <!-- 地區篩選按鈕區 -->
+    <div class="filter-group" id="filter-buttons">
+      <button class="filter-btn active" data-region="north">北區</button>
+      <button class="filter-btn" data-region="west">西區</button>
+      <button class="filter-btn" data-region="south">南區</button>
+      <button class="filter-btn" data-region="east">東部</button>
+      <button class="filter-btn" data-region="udoe">牛島</button>
+    </div>
+
+    <!-- 餐廳列表卡片區 -->
+    <div class="restaurant-grid" id="restaurant-list">
+
+      <!-- 北區餐廳 -->
+      <article class="restaurant-card" data-region="north">
+        <div class="card-tag">北區</div>
+        <h2>台北老字號牛肉麵</h2>
+        <p class="desc">經典紅燒湯頭，軟嫩牛肉配上手工刀削麵。</p>
+        <span class="info">📍 台北市大安區</span>
+      </article>
+
+      <article class="restaurant-card" data-region="north">
+        <div class="card-tag">北區</div>
+        <h2>陽明山景觀餐廳</h2>
+        <p class="desc">坐擁無敵夜景，提供精緻義式料理與手沖咖啡。</p>
+        <span class="info">📍 台北市士林區</span>
+      </article>
+
+      <!-- 西區餐廳 -->
+      <article class="restaurant-card" data-region="west">
+        <div class="card-tag">西區</div>
+        <h2>台中逢甲爆汁燒肉</h2>
+        <p class="desc">嚴選和牛與特調醬汁，夜市旁的人氣排隊名店。</p>
+        <span class="info">📍 台中市西屯區</span>
+      </article>
+
+      <!-- 南區餐廳 -->
+      <article class="restaurant-card" data-region="south">
+        <div class="card-tag">南區</div>
+        <h2>高雄港邊海鮮大排檔</h2>
+        <p class="desc">每日現撈新鮮海產，尚青的海味與熱炒美食。</p>
+        <span class="info">📍 高雄市鼓山區</span>
+      </article>
+
+      <!-- 東部餐廳 -->
+      <article class="restaurant-card" data-region="east">
+        <div class="card-tag">東部</div>
+        <h2>花蓮原住民風味料理</h2>
+        <p class="desc">特色竹筒飯、刺蔥野菜與現烤山豬肉。</p>
+        <span class="info">📍 花蓮縣花蓮市</span>
+      </article>
+
+      <!-- 牛島餐廳 -->
+      <article class="restaurant-card" data-region="udoe">
+        <div class="card-tag">牛島</div>
+        <h2>牛島花生冰淇淋專賣店</h2>
+        <p class="desc">香濃特產花生搭配手工冰淇淋，海景第一排必吃。</p>
+        <span class="info">📍 濟州特別自治道牛島面</span>
+      </article>
+
+    </div>
+  </main>
+
+  <script src="JS/restaurant.js" defer></script>
+</body>
+</html>
