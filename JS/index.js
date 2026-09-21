@@ -216,6 +216,36 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  const day1Panel = document.querySelector('#F');		// 修改'#day1'
+  if (!day1Panel) return;
+
+  const filterBtns = day1Panel.querySelectorAll('.filter-btn');
+  const items = day1Panel.querySelectorAll('.check-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // 1. 切換按鈕 active 樣式
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      // 2. 篩選 Day 1 景點列表
+      items.forEach(item => {
+        const itemArea = item.getAttribute('data-area');
+        
+        
+        if (filterValue === 'F-all' || itemArea === filterValue) {// 修改day1-all'
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
   // 自動綁定所有代購金額輸入框
   const bindAutoSavePrice = () => {
     document.querySelectorAll('.check-item[data-key]').forEach(item => {

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/hotel.css">
 </head>
 <body>
 
@@ -34,10 +35,8 @@
 			<button class="nav-tab" data-target="B">西部</button>
 			<button class="nav-tab" data-target="C">南部</button>
 			<button class="nav-tab" data-target="D">北部</button>
-			<button class="nav-tab" data-target="E">中部山區</button>
 			<button class="nav-tab" data-target="F">牛島</button>
 			<button class="nav-tab nav-tab-info" data-target="info-hotel"><i class="fa-solid fa-hotel"></i> 住宿</button>
-			<button class="nav-tab nav-tab-info" data-target="info-pack"><i class="fa-solid fa-list-check"></i> 購物清單</button>
 		</nav>
 
 	    <!-- 手帳內容主容器 -->
@@ -841,6 +840,369 @@
 	        	</div>
 	        </div>
 			
+			<!-- 南部 -->
+			<div class="tab-panel" id="C">
+				<div class="panel-header">
+					<div class="panel-tag">南部</div>
+				</div>
+				
+				<!-- 區域篩選按鈕區 -->
+				<div class="filter-btn-group">
+					<button class="filter-btn active" data-filter="C-all">全部景點</button>
+			  		<button class="filter-btn" data-filter="C-attractions">景點</button>
+					<button class="filter-btn" data-filter="C-cafes">咖啡廳 / 麵包店 / 甜點店</button>
+					<button class="filter-btn" data-filter="C-restaurant">餐廳 / 市場</button>
+					<button class="filter-btn" data-filter="C-shop">伴手禮</button>
+				</div>
+				
+				<div class="trip-list">
+					<!-- 西歸浦每日偶來市場 -->
+					<div class="check-item" data-key="C-1" data-area="C-restaurant">
+					    <div class="item-text">
+					        <strong>西歸浦每日偶來市場（서귀포매일올레시장 / Seogwipo Maeil Olle Market）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 在地傳統市場</span>
+					            <span class="tag">📍 濟州南部 / 西歸浦市</span>
+					            <span class="tag">特色小吃街</span>
+					            <span class="tag">伴手禮推薦</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/FgHDJag6" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					        </div>
+					        <p>
+					            西歸浦市區最具代表性的傳統市場！室內挑高拱廊設計晴雨皆宜，市場中央設有木質長椅與潺潺流水休息區，方便坐著享用在地熱門小吃。匯聚了黑豬肉小吃、橘子甜點、特色烤包子與各類濟州伴手禮，是體驗在地活力與夜間覓食的必訪景點。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/南區/偶來市場/橘子麻糬.jpg" alt="橘子麻糬" onclick="openModal(this)" />
+					            <img src="img/南區/偶來市場/濟成製菓.jpg" alt="濟成製菓" onclick="openModal(this)" />
+					            <img src="img/南區/偶來市場/匠人之家.jpg" alt="匠人之家" onclick="openModal(this)" />
+					            <img src="img/南區/偶來市場/血腸豬腳.webp" alt="血腸豬腳" onclick="openModal(this)" />
+					            <img src="img/南區/偶來市場/橘子果汁.jpg" alt="橘子果汁" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>開放時間：</strong>07:00 – 21:00（夏季會稍微延長）</div>
+					            <div>🚗 <strong>交通資訊：</strong>市場中央與周邊設有公有付費停車場</div>
+					            <div>🍢 <strong>必吃美食推薦：</strong></div>
+					            <ul>
+					                <li>🍊 <strong>橘子麻糬：</strong>裡面包著麻糬和紅豆餡，橘子多汁香甜，搭配紅豆餡意外地順口好吃。</li>
+					                <li>🥟 <strong>濟成製菓：</strong>烤包子專賣店，將在地黑豬肉、奶油白醬甜蝦、韭菜雞蛋等包入餅皮；建議請店員現場加熱，外皮口感更酥軟。</li>
+					                <li>🥟 <strong>匠人之家：</strong>招牌四色手工餃子，包含黑豬肉、泡菜、章魚與鮑魚餃子。</li>
+					                <li>🥓 <strong>血腸豬腳：</strong>位於2號入口直走近交叉路口右側，沾取隨附的鹽巴品嚐，口感紮實無腥味。</li>
+					                <li>🍹 <strong>橘子果汁：</strong>常態提供柑橘、天惠香與漢拏橘三種不同品種的鮮榨果汁。</li>
+					            </ul>
+					            <div>💡 <strong>逛街提醒：</strong>市場中間附設水道休息座位區，買完小吃可直接入座享用；大部分店家可刷卡，但建議備妥少許現金以備部分小攤位使用。</div>
+					        </div>
+					    </div>
+					</div>
+					
+					<!-- 中文色達海灘 -->
+					<div class="check-item" data-key="C-2" data-area="C-attractions">
+					    <div class="item-text">
+					        <strong>中文色達海灘（중문색달해변 / Jungmun Saekdal Beach）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 衝浪勝地</span>
+					            <span class="tag">📍 濟州南部 / 中文觀光園區</span>
+					            <span class="tag">四色沙灘</span>
+					            <span class="tag">絕美夕陽</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/xjgcLvHF" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					            <a href="https://lizzzstyle.tw/%e4%b8%ad%e6%96%87%e6%b5%b7%e6%b0%b4%e6%b5%b4%e5%a0%b4/" target="_blank" rel="noopener noreferrer" class="btn-map btn-google">
+					                📍 網頁資料
+					            </a>
+					        </div>
+					        <p>
+					            位於濟州島西南側中文觀光園區內，以黑、白、赤、灰四種顏色交織的獨特沙灘與高聳崖壁聞名。這裡的海浪較大，是韓國享譽盛名的衝浪聖地，也是許多高級渡假飯店私房海景步道連通的景點。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/南區/中文色達海灘/中文色達海灘.jpg" alt="中文色達海灘" onclick="openModal(this)" />
+					            <img src="img/南區/中文色達海灘/四色沙灘與峭壁.jpg" alt="四色黑沙灘與絕壁" onclick="openModal(this)" />
+					            <img src="img/南區/中文色達海灘/cliff酒吧.jpg" alt="The Cliff" onclick="openModal(this)" />
+					            <img src="img/南區/中文色達海灘/時段_夕陽.jpg" alt="夕陽日落照片" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>開放時間：</strong>24小時開放（水上活動與救生員約至 18:00）</div>
+					            <div>🚗 <strong>停車場：</strong>設有收費/免費停車場（中文觀光園區公有停車場）</div>
+					            <div>🌊 <strong>必訪亮點與特色體驗：</strong></div>
+					            <ul>
+					                <li>🏖️ <strong>四色沙灘與火山懸崖景致：</strong>沙灘由黑、白、紅、灰色不同顆粒組成，背景搭配屏風般的火山岩懸崖，呈現極具震撼力的海陸交界景觀。</li>
+					                <li>🍸 <strong>崖頂熱門景觀酒吧 The Cliff：</strong>位於海灘上方的複合式餐酒館，擁有絕佳的戶外露天沙發區，傍晚能欣賞無敵夕陽落海景致與音樂演出。</li>
+					                <li>🌅 <strong>【17:00 - 19:30】夕陽派對氛圍：</strong>漫步在夕陽餘暉染紅的沙灘上欣賞絕美日落，隨後可移步至崖頂 The Cliff 酒吧，在音樂與燈光下享受海邊微醺時光。</li>
+					            </ul>
+					            <div>💡 <strong>遊覽提醒：</strong>建議預留 1.5 ~ 2 小時漫步拍照、享用下午茶或體驗衝浪；停車場至沙灘需走一段斜坡步道。海岸邊浪較大，下水游泳請特別注意安全警示。</div>
+					        </div>
+					    </div>
+					</div>
+				
+					<!-- 茶博物館 -->
+					<div class="check-item" data-key="C-3" data-area="C-attractions">
+					    <div class="item-text">
+					        <strong>OSULLOC 茶博物館（오설록 티뮤지엄 / OSULLOC Tea Museum）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 必訪綠茶園</span>
+					            <span class="tag">📍 濟州西南側 / 安德面</span>
+					            <span class="tag">免費入場</span>
+					            <span class="tag">伴手禮首選</span>
+					            <span class="tag">Innisfree 濟州小屋</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/5WOQl7nH" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					            <a href="https://app.catchtable.co.kr/ct/shop/osullocteahouse_bukchon" target="_blank" rel="noopener noreferrer" class="btn-map btn-google">
+					                📅 預約
+					            </a>
+					        </div>
+					        <p>
+					            位於濟州西南側區域，結合展覽、品茶、購物與甜點體驗，是一個採買濟州島伴手禮的好地方；而緊鄰的 innisfree JEJU HOUSE 濟州小屋以濟州島的天然原料與環保理念為主軸，打造出能吃、能拍照、能體驗的品牌空間，保養品的部分想必大家不陌生，但濟州小屋除了保養品的販售外，還有DIY體驗、甜點與濟州島限定商品。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/南區/OSULLOC/門口.jpg" alt="OSULLOC" onclick="openModal(this)" />
+					            <img src="img/南區/OSULLOC/濃郁綠茶霜淇淋.jfif" alt="綠茶霜淇淋" onclick="openModal(this)" />
+					            <img src="img/南區/OSULLOC/廣袤西廣茶園.jpg" alt="西廣茶園" onclick="openModal(this)" />
+					            <img src="img/南區/OSULLOC/Innisfree.jpg" alt="Innisfree 濟州小屋" onclick="openModal(this)" />
+					            <img src="img/南區/OSULLOC/綠茶牛奶抹醬.jpg" alt="綠茶抹醬" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>營業時間：</strong>09:00 – 18:00（全年無休，免門票）</div>
+					            <div>🚗 <strong>停車場：</strong>設有免費大型停車場</div>
+					            <div>🍃 <strong>必訪亮點與限定美食：</strong></div>
+					            <ul>
+					                <li>🍦 <strong>濃郁綠茶霜淇淋 & 蛋糕：</strong>館內 Cafe 招牌！採用有機茶葉製作，綠茶香氣濃郁甘醇、甜而不膩，搭配綠茶瑞士卷非常熱門。</li>
+					                <li>🍵 <strong>廣袤西廣茶園：</strong>博物館周圍圍繞著超大片綠茶園，入口處巨大的綠茶杯裝置藝術是造訪濟州島必拍的打卡地標。</li>
+					                <li>🌿 <strong>Innisfree 濟州小屋：</strong>位於 Osulloc 園區後方步行 2 分鐘，為獨棟玻璃屋建築，提供天然火山泥手作香皂體驗，並販售濟州限定保養品與早午餐甜點。</li>
+					                <li>🍯 <strong>綠茶牛奶抹醬 & 特調茶包：</strong>伴手禮區必買靈魂抹醬，質地滑順抹麵包超香濃；另有多款以濟州花果調配的特色綜合茶包。</li>
+					            </ul>
+					            <div>💡 <strong>遊覽提醒：</strong>園區涵蓋綠茶博物館與 Innisfree 小屋，建議預留 1.5 ~ 2 小時漫步拍照與享用下午茶；館內與伴手禮區均全面支援信用卡刷卡消費。</div>
+					        </div>
+					    </div>
+					</div>
+					
+					<!-- 三姓穴海鮮鍋 西歸浦店 -->
+					<div class="check-item" data-key="C-4" data-area="C-restaurant">
+					    <div class="item-text">
+					        <strong>三姓穴海鮮鍋 西歸浦店（삼성혈해물탕 서귀포점 / Samseonghyeol Haemultang）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 必吃活海鮮鍋</span>
+					            <span class="tag">📍 濟州南部 / 西歸浦市</span>
+					            <span class="tag">桌邊貼心服務</span>
+					            <span class="tag">澎湃海鮮精華</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/F3TX5blQ" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					            <a href="https://blog.naver.com/kimino0727" target="_blank" rel="noopener noreferrer" class="btn-map btn-google">
+					                📍 網頁資料
+					            </a>
+					        </div>
+					        <p>
+					            濟州超高人氣的海鮮鍋專賣店！整鍋堆滿滿的活章魚、鮑魚、扇貝、螃蟹與小龍蝦等新鮮海鮮，上桌時還活蹦亂跳。店員會提供親切的桌邊服務幫忙剪切海鮮，湯頭滾煮後滿滿都是海鮮的甘甜與鮮美精華。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/南區/三姓穴海鮮鍋.jfif" alt="삼성혈해물탕 (三姓穴海鮮鍋)" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>營業時間：</strong>10:00 – 21:50（最後點餐約 20:50）</div>
+					            <div>🔥 <strong>必吃亮點與特色：</strong></div>
+					            <ul>
+					                <li>🍲 <strong>靈魂麵條：</strong>海鮮吃得差不多時，一定要請店家加拉麵（라면）進去，吸飽海鮮精華湯汁超級美味！</li>
+					                <li>👥 <strong>點餐份量：</strong>海鮮鍋按人數分大、中、小份，料多實在，建議依照實際同行人數點選即可。</li>
+					            </ul>
+					            <div>💡 <strong>用餐提醒：</strong>用餐尖峰時段人潮較多，建議稍微避開正餐高峰期前往；店員會協助修剪海鮮，煮熟後即可直接享用。</div>
+					        </div>
+					    </div>
+					</div>
+				
+					<!-- 88湯飯 -->
+					<div class="check-item" data-key="C-5" data-area="C-restaurant">
+					    <div class="item-text">
+					        <strong>88湯飯（88국밥 / 88 Gukbap）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 在地人氣湯飯</span>
+					            <span class="tag">📍 濟州南部</span>
+					            <span class="tag">黑豬肉湯飯</span>
+					            <span class="tag">案版白切豬肉</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/xxYgs4On" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					            <a href="https://lizzzstyle.tw/jeju-88-gukbap/#google_vignette" target="_blank" rel="noopener noreferrer" class="btn-map btn-google">
+					                📍 網頁資料
+					            </a>
+					        </div>
+					        <p>
+					            販售黑豬肉湯飯與血腸湯飯，十足的肉量、濃郁好喝的湯頭是他們最大的特色。搭配經典的案版白切豬肉，是品嚐濟州道地溫暖滋味的絕佳選擇。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/南區/88湯飯/88豬肉.jfif" alt="88豬肉" onclick="openModal(this)" />
+					            <img src="img/南區/88湯飯/案版白切豬肉.jpg" alt="案版白切豬肉" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>營業時間：</strong>09:00 – 20:00（星期日營業至 14:00）</div>
+					            <div>🍢 <strong>必吃美食推薦：</strong></div>
+					            <ul>
+					                <li>🍲 <strong>黑豬肉湯飯 & 血腸湯飯：</strong>肉量給得毫不手軟，濃郁溫潤的豬骨熬煮湯頭，一口接一口非常暖胃。</li>
+					                <li>🥓 <strong>案版白切豬肉（돔베수육）：</strong>包含豬頭肉與前腿肉白切肉，肉質鮮嫩無腥味，放在木案板上切片上桌，沾醬或搭配泡菜享用非常美味。</li>
+					            </ul>
+					        </div>
+					    </div>
+					</div>
+					
+					<!-- 心願紫菜飯捲 -->
+					<div class="check-item" data-key="C-6" data-area="C-restaurant">
+					    <div class="item-text">
+					        <strong>心願紫菜飯捲（소원김밥 / Sowon Gimbap）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 人氣在地小吃</span>
+					            <span class="tag">📍 濟州南部 / 西歸浦</span>
+					            <span class="tag">手作飯捲</span>
+					            <span class="tag">外帶便當首選</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/F3TX5blQ" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					            <a href="https://blog.naver.com/kimino0727" target="_blank" rel="noopener noreferrer" class="btn-map btn-google">
+					                📍 網頁資料
+					            </a>
+					        </div>
+					        <p>
+					            西歸浦在地熱門的手作紫菜飯捲專賣店！選用新鮮紮實的食材現點現捲，米飯香氣與飽滿內餡完美搭配，口感層次豐富，非常適合行程途中外帶至景點享用。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/南區/心願紫菜飯捲/心願紫菜飯捲店面.jfif" alt="心願紫菜飯捲店面" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>營業時間：</strong>10:00 – 21:50（最後點餐約 20:50）</div>
+					            <div>💡 <strong>用餐提醒：</strong>建議可作為行程途中的野餐點心或車上輕食，現點現做若遇人潮需稍作等候。</div>
+					        </div>
+					    </div>
+					</div>
+				
+					<!-- 天地淵瀑布 -->
+					<div class="check-item" data-key="C-7" data-area="C-attractions">
+					    <div class="item-text">
+					        <strong>天地淵瀑布（천지연폭포 / Cheonjiyeon Waterfall）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 夜間開放名勝</span>
+					            <span class="tag">📍 濟州南部 / 西歸浦市區</span>
+					            <span class="tag">平緩無障礙步道</span>
+					            <span class="tag">天然暖溫帶林</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/xAFC3J5w" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					            <a href="https://lizzzstyle.tw/%E5%A4%A9%E5%9C%B0%E6%B7%B5%E7%80%91%E5%B8%83/" target="_blank" rel="noopener noreferrer" class="btn-map btn-google">
+					                📍 網頁資料
+					            </a>
+					        </div>
+					        <p>
+					            位於濟州島西歸浦市區，意為「天與地相會的池塘」。高約 22 公尺、寬 12 公尺的瀑布從奇岩峭壁傾瀉而下，落入深達 20 公尺的清澈潭水中。沿途步道平緩好走，被茂密的原生暖溫帶森林圍繞，也是濟州島少數開放夜間參觀的著名自然景點。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/南區/天地淵瀑布/天地淵瀑布.jpg" alt="天地淵瀑布" onclick="openModal(this)" />
+					            <img src="img/南區/天地淵瀑布/溪谷步道.jpg" alt="林蔭步道與溪谷" onclick="openModal(this)" />
+					            <img src="img/南區/天地淵瀑布/石爺爺.jpg" alt="石頭爺爺與文化地景" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>營業時間：</strong>09:00 – 22:00（最後入場 21:20，全年無休）</div>
+					            <div>🚗 <strong>門票與停車：</strong>成人 2,000 韓元，設有免費大型停車場</div>
+					            <div>🍃 <strong>必訪亮點與特色體驗：</strong></div>
+					            <ul>
+					                <li>🌿 <strong>暖溫帶森林與溪谷步道：</strong>入口處至瀑布步行約 10 分鐘，沿著清澈溪流鋪設的步道非常平緩，兩旁栽種松膽木、山茶花等珍稀植物，滿滿負離子與芬多精。</li>
+					                <li>🗿 <strong>石頭爺爺與傳統造景：</strong>入口公園區設有巨大的濟州石頭爺爺（Dol Hareubang）與傳統武士雕像，是拍照打卡的熱門地標。</li>
+					            </ul>
+					            <div>💡 <strong>遊覽提醒：</strong>園區整體往返與拍照約需 45 ~ 60 分鐘；步道全程無階梯且極為平坦，推嬰兒車或輪椅皆非常方便。若想避開人潮，建議選擇晚餐後的夜間時段前來體驗浪漫燈光氣氛。</div>
+					        </div>
+					    </div>
+					</div>
+				
+					<!-- 鳥島新緣橋 -->
+					<div class="check-item" data-key="C-8" data-area="C-attractions">
+					    <div class="item-text">
+					        <strong>鳥島新緣橋（새섬새연교 / Saeyeongyo Bridge）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 西歸浦夜景地標</span>
+					            <span class="tag">📍 濟州南部 / 西歸浦港</span>
+					            <span class="tag">浪漫夕陽</span>
+					            <span class="tag">生態木棧步道</span>
+					            <span class="tag">免費入場</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/GkR3iF4Y" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					            <a href="https://lizzzstyle.tw/%E9%B3%A5%E5%B3%B6%E6%96%B0%E7%B7%A3%E6%A9%8B/" target="_blank" rel="noopener noreferrer" class="btn-map btn-google">
+					                📍 網頁資料
+					            </a>
+					        </div>
+					        <p>
+					            位於濟州島南部的西歸浦港，是連接西歸浦港與無人島「鳥島」的斜張行人跨海大橋。橋樑造型靈感取自濟州傳統筏船「Tewu」（테우）的帆船形象，意涵為「締造新緣分的橋樑」。白天能遠眺湛藍海景與漢拏山，夜晚則會點亮璀璨的彩色燈光，是西歸浦最具代表性的夜景散步地標。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/南區/鳥島新緣橋/鳥島新緣橋.jpg" alt="鳥島新緣橋" onclick="openModal(this)" />
+					            <img src="img/南區/鳥島新緣橋/帆船造型與夜景.jfif" alt="帆船造型與夜光燈效" onclick="openModal(this)" />
+					            <img src="img/南區/鳥島新緣橋/鳥島木棧道.jpg" alt="鳥島環島步道" onclick="openModal(this)" />
+					            <img src="img/南區/鳥島新緣橋/夕陽海景.webp" alt="日落夕陽" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>開放時間：</strong>日出 – 22:00（21:40 後禁止進入）</div>
+					            <div>💡 <strong>夜間點燈：</strong>4月至10月日落後 – 23:30</div>
+					            <div>🚗 <strong>停車資訊：</strong>設有免費大型停車場</div>
+					            <div>🌊 <strong>必訪亮點與特色體驗：</strong></div>
+					            <ul>
+					                <li>🌉 <strong>帆船主塔與璀璨夜燈：</strong>橋身中央斜張主塔宛如揚帆出海的船隻，入夜後搭配 LED 彩色燈光投射，散步其上能盡情感受海風與浪漫氛圍。</li>
+					                <li>🌿 <strong>鳥島生態木棧步道：</strong>穿過大橋即可踏上無人島「鳥島」，島上建有約 1.2 公里的環島木棧道與暖溫帶林，沿途可欣賞火山奇岩與海天一色。</li>
+					                <li>🌅 <strong>絕美日落與西歸浦港全景：</strong>傍晚為最佳造訪時段，站在橋上可一覽西歸浦港船隻停泊與夕陽染紅海面的壯闊美景。</li>
+					            </ul>
+					            <div>💡 <strong>遊覽提醒：</strong>建議於日落前半小時抵達，可一次飽覽夕陽餘暉與點燈夜景；走完全橋與鳥島環島步道約需 45 ~ 60 分鐘。海邊入夜風大，建議隨身攜帶薄外套保暖。</div>
+					        </div>
+					    </div>
+					</div>
+				
+					
+				</div>
+			</div>
+			
 			<!-- 北部 -->
 			<div class="tab-panel" id="D">
 				<div class="panel-header">
@@ -1578,6 +1940,594 @@
 					</div>
 				</div>
 			</div>
+  	
+	    	<!-- 牛島 -->
+	    	<div class="tab-panel" id="F">
+				<div class="panel-header">
+					<div class="panel-tag">牛島</div>
+				</div>
+				
+				<!-- 區域篩選按鈕區 -->
+				<div class="filter-btn-group">
+					<button class="filter-btn active" data-filter="F-all">全部景點</button>
+			  		<button class="filter-btn" data-filter="F-attractions">景點</button>
+					<button class="filter-btn" data-filter="F-cafes">咖啡廳 / 麵包店 / 甜點店</button>
+					<button class="filter-btn" data-filter="F-restaurant">餐廳 / 市場</button>
+					<button class="filter-btn" data-filter="F-car">交通方式</button>
+				</div>
+		
+        		<div class="trip-list">
+				
+					<!-- 牛島搭船上島指南 -->
+					<div class="check-item" data-key="F1" data-area="F-car">
+					    <div class="item-text">
+					        <strong>牛島搭船上島指南（우도 뱃길 / Udo Ferry Guide）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 登島必讀</span>
+					            <span class="tag">📍 濟州東部 / 城山浦港</span>
+					            <span class="tag">船程約 15 分鐘</span>
+					            <span class="tag">必備護照</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/FpxldAxy" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ 城山港 Map
+					            </a>
+					            <a href="https://www.funliday.com/posts/jeju_udo/#aioseo-" target="_blank" rel="noopener noreferrer" class="btn-map btn-google">
+					                📍 網頁資料
+					            </a>
+					        </div>
+					        <p>
+					            前往離島「牛島」的重要交通樞紐！從城山浦港乘船出發，航程約 15 分鐘即可抵達美麗的牛島。登島前需填寫乘船申報單並出示護照，島上擁有清澈海水、白色沙灘與花生冰淇淋等特色，是濟州島不可錯過的跳島行程。
+					        </p>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>📍 <strong>搭船地點：</strong>城山浦港乘船處（성산포항 종합여객터미널）</div>
+					            <div>⏱️ <strong>航程班次：</strong>約 15 分鐘（每 30 分鐘一班）</div>
+					            <div>💵 <strong>票價參考：</strong>成人來回約 11,000 韓元</div>
+					            <div>📌 <strong>購票與登島須知：</strong></div>
+					            <ul>
+					                <li>📝 <strong>填寫申報單 & 購票：</strong>至售票大廳填寫<b>乘船申報單 2 份</b>（去程與回程各一份），並攜帶全員<b>護照正本</b>至櫃檯購買來回船票。</li>
+					                <li>🚢 <strong>雙港口發船時間：</strong>牛島有兩個港口可上下船，<b>下牛木洞港</b>為整點開船，<b>天津洞港</b>為每小時 30 分開船。</li>
+					                <li>⏰ <strong>留意末班船時間：</strong>夏季（5-8月）最晚約 18:00，冬季（11-2月）最晚約 17:00，請務必於現場公告確認當日最末班船班時間。</li>
+					            </ul>
+					            <div>💡 <strong>回程提醒：</strong>回程船票與第 2 份申報單請務必妥善保管；登島與回程可在天津洞港或下牛木洞港自由選擇搭乘。</div>
+					        </div>
+					    </div>
+					</div>
+				
+					<!-- 城山港 ⇆ 牛島 渡船時刻表 -->
+					<div class="check-item" data-key="F2" data-area="F-car">
+					    <div class="item-text">
+					        <strong>城山港 ⇆ 牛島 渡船時刻表（운항시간표 / Ferry Timetable）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 船班時間指南</span>
+					            <span class="tag">📍 濟州東部 / 城山港</span>
+					            <span class="tag">每 30 分鐘一班</span>
+					            <span class="tag">留意季節末班船</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/FpxldAxy" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ 城山港 Map
+					            </a>
+					        </div>
+					        <p>
+					            城山港往返牛島的渡輪航線，航程約 15 分鐘，每 30 分鐘一班（視現場人潮機動加班）。船班交替停靠「天津洞港（每小時 30 分開）」與「下牛木洞港（每小時整點開）」，各季節首末班船時間不同，出發與回程請務必確認當季時刻。
+					        </p>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏱️ <strong>班次頻率：</strong>約每 30 分鐘一班（視現場人潮機動加班）</div>
+					            <div>🚢 <strong>停靠港口：</strong>天津洞港（整點 30 分開）/ 下牛木洞港（整點開）</div>
+					            <div>📅 <strong>各月份首末班船時間表：</strong></div>
+					            <ul>
+					                <li>☀️ <strong>5月 ～ 8月（夏季 Peak）：</strong>首班 07:00 / 末班 18:30。城山港開往牛島最晚 18:30；牛島返回城山港最晚 18:30。日照時間長，營運時間最長。</li>
+					                <li>🌸 <strong>3月・4月 / 🍂 9月・10月（春秋季）：</strong>首班 07:30 / 末班 18:00（9、10月日落較早，末班船提早至約 17:30）。</li>
+					                <li>🍁 <strong>11月 ～ 2月（冬季 Off-season）：</strong>首班 07:30 / 末班 17:00。天黑較早且風浪較大時可能停航，出發前建議確認天候。</li>
+					            </ul>
+					            <div>💡 <strong>搭船貼心提醒：</strong></div>
+					            <ul>
+					                <li>⚠️ <strong>預留緩衝時間：</strong>建議最晚在末班船開前 <b>30-45 分鐘</b>抵達港口候船，以免排隊人潮過多搭不上船。</li>
+					                <li>🔄 <strong>回程港口彈性：</strong>回程不限去程抵達的港口，下牛木洞港或天津洞港皆可搭船返回城山港。</li>
+					            </ul>
+					        </div>
+					    </div>
+					</div>
+				
+					<!-- 牛島島內交通指南 -->
+					<div class="check-item" data-key="F3" data-area="F-car">
+					    <div class="item-text">
+					        <strong>牛島島內交通指南（우도 교통 / Udo Transportation）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 環島必讀</span>
+					            <span class="tag">📍 牛島全區</span>
+					            <span class="tag">租賃汽車禁入</span>
+					            <span class="tag">觀光環島公車</span>
+					            <span class="tag">電動腳踏車</span>
+					        </div>
+					        <p>
+					            為保護島上生態環境與維護道路安全，牛島原則上全面禁止一般租賃車輛搭船登島。抵達牛島後，旅客主要以搭乘「觀光環島公車」或租借「電動腳踏車／造型電動車」進行慢活環島遊覽。
+					        </p>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>🚫 <strong>租車管制：</strong>租賃汽車禁止搭船登島，需將車輛停放在城山港停車場。</div>
+					            <div>🚌 <strong>主要交通方式：</strong>觀光環島公車、租借電動腳踏車／造型電動車。</div>
+					            <div>📌 <strong>交通重點與路線規劃：</strong></div>
+					            <ul>
+					                <li>🚗 <strong>無車慢遊模式：</strong>島上僅允許在地居民與符合特定資格之車輛行駛，建議旅人放下趕路心態，體驗悠閒的無車海島漫遊。</li>
+					                <li>🎫 <strong>觀光環島公車：</strong>港口下船處即設有售票亭，班距約 20～30 分鐘，路線行經西濱白沙灘、珊瑚沙灘、牛島燈塔、黑沙灘等各大代表性景點。</li>
+					                <li>🔄 <strong>奇偶數日行駛方向：</strong>環島公車依「單數日（奇數日）」與「雙數日（偶數日）」區分順時針或逆時針環島行駛，購票時請留意當日行車方向以利安排景點順序。</li>
+					            </ul>
+					            <div>💡 <strong>遊覽建議：</strong>搭乘環島公車路線清楚不易迷路，極度適合不想親自騎車的旅客；若想隨停隨拍、享受海風吹拂，也可在港口周邊租借電動腳踏車或三輪小電動車，行程彈性更高。</div>
+					        </div>
+					    </div>
+					</div>
+				
+					<!-- UDO SAND -->
+					<div class="check-item" data-key="F4" data-area="F-cafes">
+					    <div class="item-text">
+					        <strong>UDO SAND（우도샌드 / Udo Sand）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 牛島人氣甜點</span>
+					            <span class="tag">📍 牛島 / 下古水洞周邊</span>
+					            <span class="tag">牛島花生冰淇淋</span>
+					            <span class="tag">手作餅乾伴手禮</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/54Vq8323" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					            <a href="https://www.instagram.com/p/DYcKjkhGZd3/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="btn-map btn-google">
+					                📱 Instagram
+					            </a>
+					        </div>
+					        <p>
+					            牛島近年超人氣的花生甜點專賣店！店面外觀結合可愛的熊熊形象與愛心 LOGO，是造訪牛島不可錯過的打卡景點。店家主打以牛島特產花生製作的濃滑冰淇淋與手作酥脆餅乾，不僅甜點表現精緻，更是採買濟州伴手禮的絕佳去處。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/牛島/UDOSAND/UDO_SAND.webp" alt="UDO SAND 店面" onclick="openModal(this)" />
+					            <img src="img/牛島/UDOSAND/花生冰淇淋.jpg" alt="招牌花生冰淇淋" onclick="openModal(this)" />
+					            <img src="img/牛島/UDOSAND/花生餅乾禮盒.jpg" alt="花生酥脆餅乾禮盒" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>營業時間：</strong>11:00 – 18:00</div>
+					            <div>🚌 <strong>交通方式：</strong>搭乘循環巴士至「下古水洞海水浴場站」下車，步行約 6 分鐘。</div>
+					            <div>🥜 <strong>必點美食與伴手禮推薦：</strong></div>
+					            <ul>
+					                <li>🍦 <strong>招牌花生冰淇淋 + 酥脆餅乾：</strong>口感濃滑、乳香厚實，透出自然的濃郁花生香氣，甜度拿捏得宜；頂部擺放手作餅乾，外層輕脆、內裡柔軟，咬下便釋放香濃花生餡。</li>
+					                <li>🎁 <strong>花生酥脆餅乾伴手禮盒：</strong>經典的手作花生酥餅可單獨購買盒裝，外包裝精美可愛，非常適合帶回作為濟州牛島特色伴手禮。</li>
+					            </ul>
+					            <div>💡 <strong>貼心提醒：</strong>店面周邊拍照非常出片，建議順遊鄰近的下古水洞海水浴場；花生餅乾禮盒為熱門伴手禮，若有購買需求建議提早前往以免售罄。</div>
+					        </div>
+					    </div>
+					</div>
+					
+					<!-- 牛島炸醬麵 -->
+					<div class="check-item" data-key="F5" data-area="F-restaurant">
+					    <div class="item-text">
+					        <strong>牛島炸醬麵（우도짜장면 / Udo Jjajangmyeon）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 牛島人氣美食</span>
+					            <span class="tag">📍 牛島</span>
+					            <span class="tag">特色海帶炸醬</span>
+					            <span class="tag">韓式中華料理</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/5jJTjZXe" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					        </div>
+					        <p>
+					            牛島上相當有人氣的中華風料理店！店內氛圍樸實親切，以濃郁不膩口的韓式炸醬麵深受旅人與在地人喜愛。店家專注於料理本身，將傳統韓式炸醬結合濟州海島特色，展現獨特的風味魅力。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/牛島/牛島炸醬麵/店面.png" alt="牛島炸醬麵店面" onclick="openModal(this)" />
+					            <img src="img/牛島/牛島炸醬麵/牛島炸醬麵.webp" alt="牛島炸醬麵" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>營業時間：</strong>09:00 – 16:30（隨船班時間彈性調整）</div>
+					            <div>🥢 <strong>招牌美食推薦：</strong></div>
+					            <ul>
+					                <li>🍜 <strong>特色海帶黑豬肉炸醬麵：</strong>醬香濃厚、鹹甜比例恰到好處。最特別的是加入濟州島特產海帶，提升海鮮香氣，搭配彈牙麵條呈現絕妙的豐富口感。</li>
+					            </ul>
+					            <div>💡 <strong>用餐提醒：</strong>牛島島上餐館大多配合渡船發船時間營運，通常傍晚前即結束營業，建議安排於中午時段前往享用午餐。</div>
+					        </div>
+					    </div>
+					</div>
+					
+					<!-- MoonAge 海鮮拉麵 -->
+					<div class="check-item" data-key="F-6" data-area="F-restaurant">
+					    <div class="item-text">
+					        <strong>MoonAge 海鮮拉麵（문개항아리 / MoonGae Hangari）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 牛島必吃海鮮</span>
+					            <span class="tag">📍 牛島</span>
+					            <span class="tag">巨無霸整隻章魚</span>
+					            <span class="tag">澎湃海鮮拉麵</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/GkR3lFmv" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Map
+					            </a>
+					            <a href="https://peiwkwon1108.pixnet.net/blog/posts/8224136509" target="_blank" rel="noopener noreferrer" class="btn-map btn-google">
+					                📍 資料
+					            </a>
+					        </div>
+					        <p>
+					            牛島上極具代表性的海鮮拉麵名店！以超澎湃的整隻章魚與多種現捕海鮮聞名，整鍋滿滿料多實在。湯頭鮮美辛香，吸飽海鮮精華，是許多旅人來到牛島品嚐特色海味的絕佳首選。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/牛島/MoonAge/店面.png" alt="MoonGae 海鮮拉麵店面" onclick="openModal(this)" />
+					            <img src="img/牛島/MoonAge/章魚海鮮拉麵.avif" alt="招牌章魚海鮮拉麵" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>營業時間：</strong>09:30 – 17:00（隨船班與食材售完時間調整）</div>
+					            <div>🥢 <strong>招牌美食推薦：</strong></div>
+					            <ul>
+					                <li>🍜 <strong>招牌巨無霸章魚海鮮拉麵：</strong>豪邁放入整隻鮮嫩章魚，搭配鮑魚、蝦子、螃蟹與貽貝等多種海鮮，湯頭濃郁鮮甜，拉麵香 Q 有勁。</li>
+					            </ul>
+					            <div>💡 <strong>用餐提醒：</strong>海鮮每日限量供應，熱門用餐時段可能需要排隊候位，建議安排在午餐時段提早前往享用。</div>
+					        </div>
+					    </div>
+					</div>
+				
+					<!-- BLANC ROCHER 咖啡廳 -->
+					<div class="check-item" data-key="F-7" data-area="F-cafes">
+					    <div class="item-text">
+					        <strong>BLANC ROCHER 咖啡廳（블랑로쉐 / Blanc Rocher）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 牛島第一排海景</span>
+					            <span class="tag">📍 牛島 / 下古水洞海水浴場</span>
+					            <span class="tag">純白夢幻露台</span>
+					            <span class="tag">特產花生冰淇淋</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/GFB1lGsK" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					            <a href="https://www.instagram.com/blancrocher_udo" target="_blank" rel="noopener noreferrer" class="btn-map btn-google">
+					                📱 Instagram
+					            </a>
+					        </div>
+					        <p>
+					            座落於牛島下古水洞海水浴場旁的純白海景咖啡廳！擁有絕佳的全景玻璃窗與戶外露天海景座席，能近距離遠眺晶瑩剔透的藍綠色漸層大海，是牛島上最具代表性且打卡率極高的質感咖啡廳。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/牛島/BLANCROCHER/海景.jpg" alt="海景" onclick="openModal(this)" />
+					            <img src="img/牛島/BLANCROCHER/花生冰淇淋.jpg" alt="牛島花生冰淇淋" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>營業時間：</strong>11:00 – 17:00（隨渡船船班與季節調整）</div>
+					            <div>☕ <strong>必點招牌與限定甜點：</strong></div>
+					            <ul>
+					                <li>🍨 <strong>牛島特產花生冰淇淋：</strong>採用當地產鮮美花生碎粒與濃郁奶香冰淇淋完美搭配，每一口都吃得到香脆口感與滿滿花生香。</li>
+					            </ul>
+					            <div>💡 <strong>造訪提醒：</strong>熱門時段戶外面海座位一位難求，建議到達時先尋找位置再前往點餐；配合末班船時間，咖啡廳傍晚 17:00 左右即結束營業，請留意時間安排。</div>
+					        </div>
+					    </div>
+					</div>
+				
+					<!-- HAKOYA 咖啡廳 -->
+					<div class="check-item" data-key="F-8" data-area="F-cafes">
+					    <div class="item-text">
+					        <strong>HAKOYA 咖啡廳（하고야 까페 / HAKOYA Cafe）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 適合外帶</span>
+					            <span class="tag">📍 牛島 / 下古水洞正對面</span>
+					            <span class="tag">早鳥友善（08:30開）</span>
+					            <span class="tag">全景落地窗海景</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/GMm8DjHV" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					        </div>
+					        <p>
+					            座落於牛島下古水洞海水浴場正對面！純白簡約的建築外觀搭配 2 樓全景落地窗，能無死角飽覽湛藍海景與浪花，是牛島上非常適合早晨放鬆、享受海風的質感麵包甜點咖啡廳。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/牛島/HAKOYA/花生冰淇淋.jfif" alt="牛島花生冰淇淋" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>營業時間：</strong>08:30 – 17:00（早鳥友善）</div>
+					            <div>☕ <strong>必訪亮點與手作甜點：</strong></div>
+					            <ul>
+					                <li>🍨 <strong>牛島花生冰淇淋：</strong>採用在地特產花生製作的香濃冰淇淋，以及酸甜開胃的漢拏橘特調飲品，充滿海島特色。</li>
+					            </ul>
+					            <div>💡 <strong>造訪提醒：</strong>早上 08:30 即開始營業，若搭乘早班船上島，非常推薦第一站來此享用手作早餐與咖啡，順便避開午後熱門時段的人潮。</div>
+					        </div>
+					    </div>
+					</div>
+				
+					<!-- 西濱白沙 / 珊瑚海邊 -->
+					<div class="check-item" data-key="F-9" data-area="F-attractions">
+					    <div class="item-text">
+					        <strong>西濱白沙 / 珊瑚海邊（서빈백사 / Seobinbaeksa Beach）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 牛島八景之一</span>
+					            <span class="tag">📍 牛島西側</span>
+					            <span class="tag">爆米花紅藻石</span>
+					            <span class="tag">翡翠果凍海</span>
+					            <span class="tag">西側絕美夕陽</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/F9N4pDyj" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					        </div>
+					        <p>
+					            名列「牛島八景」之一！以耀眼的白沙灘與翡翠綠漸層果凍海聞名。白沙灘並非一般細沙，而是稀有的「爆米花紅藻石」堆積而成。水質清澈見底，是造訪牛島絕對不可錯過的拍照打卡海景名勝。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/牛島/西濱白/西濱白.bmp" alt="西濱白沙" onclick="openModal(this)" />
+					            <img src="img/牛島/西濱白/紅藻石爆米花.webp" alt="爆米花紅藻石" onclick="openModal(this)" />
+					            <img src="img/牛島/西濱白/漸層海景.jpg" alt="漸層琉璃海" onclick="openModal(this)" />
+					            <img src="img/牛島/西濱白/夕陽海景.jfif" alt="夕陽落日景致" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>開放時間：</strong>24小時開放（戲水與安全防護約至 18:00）</div>
+					            <div>🚌 <strong>交通方式：</strong>天津洞港步行可達 / 搭乘環島公車至「西濱白沙站」下車。</div>
+					            <div>🌊 <strong>必訪亮點與特色體驗：</strong></div>
+					            <ul>
+					                <li>🍿 <strong>爆米花狀紅藻石沙灘：</strong>近看像爆米花般可愛的白沙，其實是珍貴的「紅藻石」碳酸鈣結晶（天然紀念物保護），拍照極具特色。</li>
+					                <li>💎 <strong>絕美翡翠綠漸層海景：</strong>海水因深淺折射出淡綠到深藍的琉璃漸層色，晴天陽光灑落時呈現夢幻如果凍般的清澈視覺。</li>
+					                <li>🌅 <strong>牛島西側絕美落日：</strong>位處牛島西岸，傍晚回程搭船前非常適合在此靜靜欣賞夕陽沉入濟州本島與漢拏山背後。</li>
+					            </ul>
+					            <div>⚠️ <strong>遊覽提醒：</strong></div>
+					            <ul>
+					                <li>🚫 <strong>嚴禁帶走紅藻石：</strong>沙灘上的紅藻石為受法律保護的自然遺產，切勿私自裝袋或帶走。</li>
+					                <li>👟 <strong>踩踏防護：</strong>紅藻石顆粒較大且偶有硬角，建議穿著厚底涼鞋或防滑水鞋踏浪以免刺腳。</li>
+					            </ul>
+					        </div>
+					    </div>
+					</div>
+					
+					<!-- 黑沙灘 -->
+					<div class="check-item" data-key="F-10" data-area="F-attractions">
+					    <div class="item-text">
+					        <strong>黑沙灘 / 黑沙海岸（검머레해변 / Geommeolle Beach）</strong>
+					        <div class="item-tags">
+					            <span class="tag tag-must">★ 牛島八景之一</span>
+					            <span class="tag">📍 牛島東側</span>
+					            <span class="tag">玄武岩火山黑沙</span>
+					            <span class="tag">牛島峰懸崖絕壁</span>
+					            <span class="tag">東岸鯨窟</span>
+					        </div>
+					        <div class="map-actions">
+					            <a href="https://naver.me/5UEcWoAp" target="_blank" rel="noopener noreferrer" class="btn-map btn-naver">
+					                🗺️ Naver Map
+					            </a>
+					        </div>
+					        <p>
+					            名列「牛島八景」的天然景致！由火山玄武岩風化形成的細緻黑色沙灘，上方聳立著壯麗的牛島峰懸崖峭壁，崖底更隱藏著神秘的「東岸鯨窟」海蝕洞，展現出與白沙灘截然不同的黑火山粗曠美感。
+					        </p>
+					
+					        <!-- 圖片展示區 -->
+					        <div class="item-gallery">
+					            <img src="img/牛島/黑沙灘/黑沙灘.jfif" alt="黑沙灘全景" onclick="openModal(this)" />
+					            <img src="img/牛島/黑沙灘/黑火山沙灘.avif" alt="玄武岩火山黑沙灘" onclick="openModal(this)" />
+					            <img src="img/牛島/黑沙灘/海女像.avif" alt="下古水洞海女像" onclick="openModal(this)" />
+					        </div>
+					
+					        <!-- 詳細資訊與注意事項 -->
+					        <div class="item-details">
+					            <div>⏰ <strong>開放時間：</strong>24小時開放（觀景台區免費參觀）</div>
+					            <div>🚌 <strong>交通方式：</strong>搭乘環島公車至「黑沙灘站（검머레）」下車即達。</div>
+					            <div>🌊 <strong>必訪亮點與特色體驗：</strong></div>
+					            <ul>
+					                <li>🌋 <strong>玄武岩火山黑沙灘：</strong>炭黑色的沙粒細緻且帶有些許微溫感，漫步於黑沙與白色浪花交界處，極具視覺張力與海島特色。</li>
+					                <li>🗿 <strong>下古水洞海女像：</strong>座落於白沙灘與黑玄武岩交界之處的經典雕像，栩栩如生展現海女背著網袋與浮球入海採集的英姿，背靠漸層翡翠綠海，為熱門打卡人文景點。</li>
+					            </ul>
+					            <div>⚠️ <strong>遊覽提醒：</strong></div>
+					            <ul>
+					                <li>🪜 <strong>階梯步道：</strong>從上方觀景台前往黑沙灘需走一段較陡的木棧階梯，行走時請注意腳下安全。</li>
+					                <li>🍦 <strong>景點串聯：</strong>黑沙灘上方公路旁有多家熱門的花生冰淇淋店（如王子冰淇淋），適合欣賞完海景後順道品嚐。</li>
+					            </ul>
+					        </div>
+					    </div>
+					</div>
+					
+				</div>
+
+			</div>
+	    
+	    	<!-- 住宿 -->
+	    	<div class="tab-panel" id="info-hotel">
+				<!-- 住宿專區 -->
+			    <div class="panel-header">
+			        <div class="panel-tag">住宿 🏨</div>
+			    </div>
+				
+			    <!-- 飯店 1：漢拿山包棟 -->
+			    <div class="hotel-card card-1" style="margin-top: 15px;">
+			        <div class="tape-decor tape-warm"></div>
+			        <div class="date-badge badge-orange">10/16 – 10/18 · 2晚</div>
+			        
+			        <h3 class="hotel-name">漢拿山國立公園境內包棟房源 🌿</h3>
+			        
+			        <div class="hotel-info-list">
+			            <div class="info-row">
+			                <span class="info-icon">📍</span>
+			                <div class="info-text"><b>地址：</b>位於漢拿山國立公園內（無確切地圖定位）</div>
+			            </div>
+			            <div class="info-row">
+			                <span class="info-icon">⏰</span>
+			                <div class="info-text"><b>入住 / 退房：</b>14:00 Check-in / 10:00 Check-out <small class="text-hint">（以台灣時間顯示）</small></div>
+			            </div>
+			        </div>
+			
+			        <div class="action-buttons">
+			            <a href="https://www.airbnb.com.tw/rooms/1534819816641973097?check_out=2026-10-20&viralityEntryPoint=154&s=76&check_in=2026-10-16&adults=7&guests=1&source_impression_id=p3_1785206985_P3o-qArCBb7HswWc" target="_blank" rel="noopener noreferrer" class="btn btn-airbnb">
+			                🏡 查看 Airbnb 房源詳情 ➔
+			            </a>
+			        </div>
+			
+			        <!-- 拍立得相框區塊 -->
+			        <div class="photo-grid">
+			            <div class="photo-card tilt-left">
+			                <div class="mini-tape"></div>
+			                <div class="img-wrapper">
+			                    <img src="img/第一間飯店/01.avif" alt="客廳" class="photo-img" onclick="openModal(this)">
+			                </div>
+			                <div class="photo-caption">客廳 🛋️</div>
+			            </div>
+			
+			            <div class="photo-card tilt-right">
+			                <div class="mini-tape"></div>
+			                <div class="img-wrapper">
+			                    <img src="img/第一間飯店/02.avif" alt="景觀" class="photo-img" onclick="openModal(this)">
+			                </div>
+			                <div class="photo-caption">景觀 🌊</div>
+			            </div>
+			
+			            <div class="photo-card tilt-left-sm">
+			                <div class="mini-tape"></div>
+			                <div class="img-wrapper">
+			                    <img src="img/第一間飯店/03.avif" alt="外觀" class="photo-img" onclick="openModal(this)">
+			                </div>
+			                <div class="photo-caption">外觀 ⛰️</div>
+			            </div>
+			        </div>
+			
+			        <!-- 設施與自備清單 -->
+			        <div class="memo-box">
+			            <div class="memo-section">
+			                <b class="memo-title">🏨 房源設施與服務</b>
+			                <div class="facility-tags">
+			                    <span class="facility-tag">🛀 吹風機、清潔產品、洗髮潤髮</span>
+			                    <span class="facility-tag">📺 電視</span>
+			                    <span class="facility-tag">📶 免費 Wi-Fi</span>
+			                    <span class="facility-tag">🍽️ 廚房、微波爐、電磁爐、餐具</span>
+			                    <span class="facility-tag">🅿️ 免費停車位</span>
+			                </div>
+			            </div>
+			            
+			            <div class="memo-section">
+			                <b class="memo-title alert-title">🎒 記得自行準備</b>
+			                <div class="facility-tags">
+			                    <span class="facility-tag bring-tag">🪥 牙刷 & 牙膏</span>
+			                    <span class="facility-tag bring-tag">📜 個人大浴巾 / 毛巾</span>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+				
+				<!-- 飯店 2：延坪島加點分飯店 -->
+			    <div class="hotel-card card-2" style="margin-top: 30px;">
+			        <div class="tape-decor tape-blue"></div>
+			        <div class="date-badge badge-blue">10/18 – 10/20 · 2晚</div>
+			        
+			        <h3 class="hotel-name">延坪島加點分飯店 🌅</h3>
+			        
+			        <div class="hotel-info-list">
+			            <div class="info-row">
+			                <span class="info-icon">📍</span>
+			                <div class="info-text"><b>地址：</b>28-4, Onpyeongseo-ro, 63633 西歸浦市, 濟州特別自治道</div>
+			            </div>
+			            <div class="info-row">
+			                <span class="info-icon">⏰</span>
+			                <div class="info-text"><b>入住 / 退房：</b>16:00 Check-in / 11:00 Check-out <small class="text-hint">（以台灣時間顯示）</small></div>
+			            </div>
+			            <div class="info-row">
+			                <span class="info-icon">🔑</span>
+			                <div class="info-text"><b>自助入住：</b>抵達前需聯繫飯店以取得大門進房密碼</div>
+			            </div>
+			        </div>
+			
+			        <div class="action-buttons">
+			            <a href="https://naver.me/xprhMR0u" target="_blank" rel="noopener noreferrer" class="btn btn-naver">
+			                🗺️ Naver Map 導航
+			            </a>
+			            <a href="https://tw.trip.com/hotels/w/detail/?cityid=35796&hotelid=47156964&checkin=2026-10-18&checkout=2026-10-20&curr=TWD&locale=zh-TW&fromShare=TripPcDetail&linkhub_token=sl_0iJck1cmbV2" target="_blank" rel="noopener noreferrer" class="btn btn-trip">
+			                🌐 Trip.com 訂單詳情
+			            </a>
+			        </div>
+			
+			        <!-- 拍立得相框區塊 -->
+			        <div class="photo-grid">
+			            <div class="photo-card tilt-left">
+			                <div class="mini-tape"></div>
+			                <div class="img-wrapper">
+			                    <img src="img/第二間飯店/01.jpg" alt="飯店外觀" class="photo-img" onclick="openModal(this)">
+			                </div>
+			                <div class="photo-caption">飯店外觀 🏨</div>
+			            </div>
+			
+			            <div class="photo-card tilt-right">
+			                <div class="mini-tape"></div>
+			                <div class="img-wrapper">
+			                    <img src="img/第二間飯店/02.jpg" alt="戶外風景" class="photo-img" onclick="openModal(this)">
+			                </div>
+			                <div class="photo-caption">戶外庭院 ⛰️</div>
+			            </div>
+			
+			            <div class="photo-card tilt-left-sm">
+			                <div class="mini-tape"></div>
+			                <div class="img-wrapper">
+			                    <img src="img/第二間飯店/03.webp" alt="客廳" class="photo-img" onclick="openModal(this)">
+			                </div>
+			                <div class="photo-caption">客廳休息 🛋️</div>
+			            </div>
+			
+			            <div class="photo-card tilt-right-sm">
+			                <div class="mini-tape"></div>
+			                <div class="img-wrapper">
+			                    <img src="img/第二間飯店/04.webp" alt="用餐區" class="photo-img" onclick="openModal(this)">
+			                </div>
+			                <div class="photo-caption">廚房用餐 🍽️</div>
+			            </div>
+			        </div>
+			
+			        <!-- 設施與自備清單 -->
+			        <div class="memo-box">
+			            <div class="memo-section">
+			                <b class="memo-title">🏨 房源設施與服務</b>
+			                <div class="facility-tags">
+			                    <span class="facility-tag">📺 電視</span>
+			                    <span class="facility-tag">📶 免費 Wi-Fi</span>
+			                    <span class="facility-tag">🍽️ 廚房、微波爐、基本廚具、餐具</span>
+			                    <span class="facility-tag">🅿️ 免費停車場</span>
+			                </div>
+			            </div>
+			            
+			            <div class="memo-section">
+			                <b class="memo-title alert-title">🎒 記得自行準備</b>
+			                <div class="facility-tags">
+			                    <span class="facility-tag bring-tag">🪥 牙刷 & 牙膏</span>
+			                    <span class="facility-tag bring-tag">🏺 個人盥洗保養品</span>
+			                    <span class="facility-tag bring-tag">📜 毛巾浴巾</span>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+	    
+	    
 	    </section>
 	</main>
 	

@@ -1,375 +1,379 @@
-/* ==========================================
-   濟州島手帳風格 - 飯店頁面專用 CSS (hotel.css)
-   ========================================== */
-
+/* --- 基礎設定與字體 --- */
 :root {
-    --bg-paper: #fcf8f2;
-    --card-bg: #ffffff;
-    --text-color: #5a4b41;
-    --accent-orange: #ff9d6c;
-    --accent-yellow: #f7d070;
-    --accent-blue: #a3c2c9;
-    --accent-pink: #f2b5d4;
-    --border-color: #e8ded2;
+    --bg-cream: #FAF7F2;
+    --card-bg: #FFFFFF;
+    --text-main: #3D352E;
+    --text-muted: #7E7267;
+    --accent-orange: #E67E22;
+    --accent-blue: #5B92A8;
+    --bring-color: #D9534F;
+    --border-color: #EFE7DC;
+    --shadow-soft: 0 10px 30px rgba(116, 92, 69, 0.08);
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
 }
 
 body {
-    background-color: var(--bg-paper);
-    color: var(--text-color);
+    background-color: var(--bg-cream);
+    /* 點陣手帳背景紋理 */
+    background-image: radial-gradient(#E5DDD3 1.2px, transparent 1.2px);
+    background-size: 24px 24px;
+    font-family: 'Zen Maru Gothic', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text-main);
     line-height: 1.6;
+    padding-bottom: 90px;
 }
 
-/* 主要容器 */
+/* --- 手帳主容器 --- */
 .scrapbook-container {
-    max-width: 480px;
+    max-width: 680px;
     margin: 0 auto;
-    padding: 20px 15px 100px 15px; /* 留出底部導覽列空間 */
+    padding: 24px 16px 40px;
     position: relative;
 }
 
-/* 頁頭標題 */
+/* 漂浮小裝飾貼紙 */
+.illustration {
+    position: absolute;
+    font-size: 2rem;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+    user-select: none;
+    z-index: 1;
+}
+.deco-1 { top: 15px; left: 12px; transform: rotate(-15deg); }
+.deco-2 { top: 30px; right: 15px; transform: rotate(18deg); }
+
+/* --- 頁頭風格 --- */
 .header-section {
     text-align: center;
-    margin-bottom: 25px;
-    padding: 20px 0;
-    border-bottom: 2px dashed #e0d0c1;
+    padding: 25px 0 35px;
+}
+
+.trip-tag {
+    display: inline-block;
+    background: #FFF1E6;
+    color: var(--accent-orange);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    border: 1px solid #FFE0CC;
 }
 
 .header-section h1 {
-    font-size: 1.8rem;
-    color: #ff8a50;
-    letter-spacing: 2px;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #2F2620;
+    letter-spacing: 1px;
 }
 
-.header-section p {
-    font-size: 0.85rem;
-    color: #9c8979;
+.date-range {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 5px;
 }
 
-/* 手帳飯店卡片 */
+/* --- 飯店手帳卡片 --- */
 .hotel-card {
     background: var(--card-bg);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 30px;
+    border-radius: 24px;
+    padding: 28px 22px;
+    margin-bottom: 36px;
     position: relative;
-    box-shadow: 3px 4px 12px rgba(180, 160, 140, 0.15);
-    border: 1px solid var(--border-color);
-    transform: rotate(-0.5deg); /* 微傾斜手帳感 */
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(230, 220, 205, 0.7);
     transition: transform 0.2s ease;
+}
+
+.card-1 { transform: rotate(-0.4deg); }
+.card-2 { transform: rotate(0.6deg); }
+
+.hotel-card:hover {
+    transform: rotate(0deg) translateY(-3px);
 }
 
 /* 紙膠帶裝飾 */
 .tape-decor {
     position: absolute;
     top: -12px;
-    left: 20%;
-    width: 90px;
-    height: 24px;
-    background: rgba(255, 157, 108, 0.5);
-    transform: rotate(-3deg);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 26px;
+    backdrop-filter: blur(2px);
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
 }
 
-/* 日期標籤 */
+.tape-warm {
+    background: rgba(246, 213, 140, 0.75);
+    transform: translateX(-50%) rotate(-1deg);
+}
+
+.tape-blue {
+    background: rgba(184, 218, 228, 0.75);
+    transform: translateX(-50%) rotate(1.5deg);
+}
+
+/* 日期標籤貼 */
 .date-badge {
     display: inline-block;
-    background: var(--accent-orange);
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: bold;
-    padding: 3px 12px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-}
-
-.hotel-card h2 {
-    font-size: 1.3rem;
-    color: #4a3c31;
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
     margin-bottom: 12px;
+    letter-spacing: 0.5px;
 }
 
-/* 飯店基本資訊 */
-.hotel-info p {
-    font-size: 0.9rem;
-    color: #66584e;
-    margin-bottom: 5px;
+.badge-orange {
+    background: #FFEDD5;
+    color: #C25E00;
 }
 
-.highlight {
-    background-color: #fff3c4;
-    padding: 1px 6px;
-    border-radius: 4px;
-    font-family: monospace;
-    font-weight: bold;
+.badge-blue {
+    background: #E0F2FE;
+    color: #0369A1;
 }
 
-/* 拍立得風格相片相框 */
-.photo-frame {
-    background: #fff;
-    padding: 10px 10px 25px 10px;
-    border: 1px solid #ebdcd0;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.06);
-    margin: 15px 0;
-    text-align: center;
-    transform: rotate(1deg);
+.hotel-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #2D241E;
+    margin-bottom: 16px;
+    line-height: 1.4;
 }
 
-.photo-placeholder {
-    width: 100%;
-    height: 140px;
-    background-color: #f7f3ee;
+/* 飯店資訊條目 */
+.hotel-info-list {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #b5a495;
-    font-size: 0.85rem;
-    border: 1px dashed #d6c5b5;
-    border-radius: 4px;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.92rem;
+    background: #FDFBF8;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px dashed var(--border-color);
 }
 
-/* 手帳 Memo 備忘錄區塊 */
-.memo-box {
-    background: #fffdf0;
-    border-left: 4px solid var(--accent-yellow);
-    padding: 12px 15px;
-    border-radius: 0 8px 8px 0;
-    font-size: 0.85rem;
-    color: #615246;
-    margin-top: 10px;
-}
-
-.memo-box ul {
-    margin-left: 18px;
-    margin-top: 5px;
-}
-
-.memo-box li {
-    margin-bottom: 3px;
-}
-
-/* 裝飾圖案 */
-.illustration {
-    position: absolute;
-    font-size: 1.8rem;
-    opacity: 0.8;
-    user-select: none;
-}
-.deco-1 { top: 15px; right: 15px; }
-.deco-2 { top: 70px; left: 10px; }
-
-/* ==========================================
-   底部固定導覽列 (Bottom Navigation)
-   ========================================== */
-.main-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
+.info-row {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 12px 0;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid #f0f0f0;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-    z-index: 999;
+    align-items: flex-start;
+    gap: 8px;
 }
 
-.nav-item {
-    text-decoration: none;
-    color: #888;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 6px 16px;
-    border-radius: 20px;
-    transition: all 0.2s ease;
+.info-icon {
+    font-size: 1.1rem;
+    line-height: 1.3;
 }
 
-.nav-item:hover, .nav-item.active {
-    background-color: var(--accent-orange);
-    color: #fff;
+.info-text {
+    flex: 1;
 }
 
-/* 飯店參考網址連結樣式 */
-.hotel-link {
-    display: inline-block;
-    color: #ff9d6c;
-    text-decoration: none;
-    font-weight: bold;
-    background-color: #fff4ee;
-    padding: 2px 10px;
-    border-radius: 12px;
-    border: 1px dashed #ff9d6c;
-    margin-left: 4px;
-    transition: all 0.2s ease;
+.text-hint {
+    color: #9E9287;
+    font-size: 0.8rem;
 }
 
-.hotel-link:hover {
-    background-color: #ff9d6c;
-    color: #ffffff;
+/* 連結與按鈕組 */
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0;
 }
 
-/* Naver Map 手帳貼紙按鈕 */
-.naver-btn {
+.btn {
     display: inline-flex;
     align-items: center;
-    gap: 3px;
-    background-color: #03c75a; /* Naver 招牌綠 */
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 2px 8px;
+    justify-content: center;
+    padding: 9px 16px;
     border-radius: 12px;
-    margin-left: 6px;
-    vertical-align: middle;
-    box-shadow: 1px 1px 4px rgba(3, 199, 90, 0.25);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
     transition: all 0.2s ease;
 }
 
-.naver-btn:hover {
-    background-color: #02b350;
-    transform: translateY(-1px) scale(1.03);
-    color: #ffffff;
+.btn-airbnb {
+    background: #FF5A5F;
+    color: #FFF;
 }
+.btn-airbnb:hover { background: #E0484D; }
 
-/* ==========================================
-   多圖拍立得相框樣式 (Photo Grid)
-   ========================================== */
+.btn-naver {
+    background: #03C75A;
+    color: #FFF;
+}
+.btn-naver:hover { background: #02AC4E; }
 
+.btn-trip {
+    background: #287DFA;
+    color: #FFF;
+}
+.btn-trip:hover { background: #1B65D4; }
+
+/* --- 拍立得照片牆 --- */
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 一行放兩張照片 */
-    gap: 15px 12px;
-    margin: 20px 0 15px 0;
-    padding: 10px 5px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 24px 0 20px;
 }
 
-/* 單張拍立得卡片 */
+@media (min-width: 520px) {
+    .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+}
+
 .photo-card {
-    background: #ffffff;
-    padding: 8px 8px 12px 8px;
-    border: 1px solid #ebdcd0;
+    background: #FFFFFF;
+    padding: 8px 8px 12px;
+    box-shadow: 0 4px 12px rgba(90, 75, 60, 0.12);
     border-radius: 4px;
-    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.08);
     position: relative;
-    transition: transform 0.2s ease, z-index 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .photo-card:hover {
-    transform: scale(1.05) rotate(0deg) !important;
-    z-index: 10;
-}
-
-/* 照片圖片 */
-.photo-img {
-    width: 100%;
-    height: 100px; /* 固定高度保持整齊 */
-    object-fit: cover; /* 圖片自動裁切填滿不變形 */
-    border-radius: 2px;
-    display: block;
-    background-color: #f7f3ee;
-}
-
-/* 照片下方手寫文字說明 */
-.photo-caption {
-    text-align: center;
-    font-size: 0.75rem;
-    color: #8c7b6e;
-    margin-top: 6px;
-    font-weight: 500;
-}
-
-/* 微膠帶裝飾（固定在每張相片上方） */
-.mini-tape {
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 35px;
-    height: 14px;
-    background: rgba(247, 208, 112, 0.65); /* 半透明紙膠帶黃 */
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transform: scale(1.04) rotate(0deg) !important;
+    box-shadow: 0 8px 20px rgba(90, 75, 60, 0.18);
     z-index: 2;
 }
 
-/* 手帳微傾斜亂貼感 */
-.tilt-left {
-    transform: rotate(-3deg);
+/* 照片微傾斜效果 */
+.tilt-left { transform: rotate(-2deg); }
+.tilt-right { transform: rotate(2.5deg); }
+.tilt-left-sm { transform: rotate(-1.5deg); }
+.tilt-right-sm { transform: rotate(1.8deg); }
+
+/* 迷你相框紙膠帶 */
+.mini-tape {
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 42px;
+    height: 14px;
+    background: rgba(235, 230, 220, 0.85);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.tilt-right {
-    transform: rotate(2.5deg);
+.img-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #EEE9E2;
+    border-radius: 2px;
 }
 
-.tilt-left-sm {
-    transform: rotate(-1.5deg);
-}
-
-.tilt-right-sm {
-    transform: rotate(3.5deg);
-}
-
-
-/* ==========================================
-   飯店設施與服務標籤 (Facility Tags)
-   ========================================== */
-
-.memo-box {
-    background: #fdfaf3;
-    border-left: 4px solid var(--accent-orange, #ff9d6c);
-    padding: 12px 15px;
-    border-radius: 0 10px 10px 0;
-    font-size: 0.88rem;
-    color: #615246;
-    margin-top: 15px;
-}
-
-.memo-box b {
+.photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    margin-bottom: 8px;
-    color: #4a3c31;
 }
 
-/* 設施小 Tag 區塊排版 */
+.photo-caption {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-align: center;
+    color: #6C5F54;
+    margin-top: 8px;
+}
+
+/* --- 備忘錄與自備清單 (便簽風格) --- */
+.memo-box {
+    background: #FFFDF9;
+    border: 1px solid #EFE4D6;
+    border-radius: 18px;
+    padding: 18px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.memo-title {
+    display: block;
+    font-size: 0.9rem;
+    color: #4A3E36;
+    margin-bottom: 8px;
+}
+
+.alert-title {
+    color: #C0392B;
+}
+
 .facility-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-/* 單個設施標籤 */
 .facility-tag {
-    background-color: #ffffff;
-    color: #736154;
+    display: inline-block;
+    background: #F3ECE2;
+    color: #55483E;
     font-size: 0.78rem;
+    font-weight: 500;
     padding: 4px 10px;
-    border-radius: 12px;
-    border: 1px solid #ebdcd0;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.03);
-    display: inline-flex;
+    border-radius: 8px;
+}
+
+.bring-tag {
+    background: #FDE8E7;
+    color: #C0392B;
+    border: 1px dashed #F5B7B1;
+    font-weight: 700;
+}
+
+/* --- 底部導覽列 --- */
+.main-nav {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 12px;
+    box-shadow: 0 8px 24px rgba(78, 60, 43, 0.15);
+    border: 1px solid rgba(240, 230, 218, 0.9);
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-decoration: none;
+    color: #9C8E82;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
 }
 
-/* 自備物品標題間距 */
-.bring-title {
-    margin-top: 12px !important;
-    color: #c86b59 !important; /* 柔和紅橘色，提醒效果更好 */
+.nav-icon {
+    font-size: 1.15rem;
+    margin-bottom: 2px;
 }
 
-/* 需自備物品標籤（帶有粉嫩提醒感） */
-.facility-tag.bring-tag {
-    background-color: #fff4f2;
-    border: 1px dashed #f2b5d4;
-    color: #a85850;
+.nav-item.active {
+    background: #F4ECE1;
+    color: var(--accent-orange);
 }
