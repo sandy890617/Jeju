@@ -1,7 +1,27 @@
+// ==========================================
+// 1. 備選方案外框顯示/隱藏控制函式
+// ==========================================
+function updateAltSections() {
+  document.querySelectorAll('.alt-section-wrapper').forEach(wrapper => {
+    // 檢查該區塊內是否有「顯示中」的卡片
+    const visibleCards = Array.from(wrapper.querySelectorAll('.alt-card')).filter(card => {
+      return card.style.display !== 'none' && !card.classList.contains('hidden');
+    });
+
+    // 若區塊內無可見卡片，整組外框（包含標題與虛線）直接隱藏
+    wrapper.style.display = visibleCards.length > 0 ? '' : 'none';
+  });
+}
+
+// ==========================================
+// 2. 主邏輯監聽 (DOM 載入完成)
+// ==========================================
 document.addEventListener("DOMContentLoaded", () => {
   let doneList = JSON.parse(localStorage.getItem("doneTrips")) || [];
 
-  // 1. 主分頁 Tab 切換 (Day 1~4、航班、住宿、清單)
+  // ------------------------------------------
+  // (1) 主分頁 Tab 切換 (Day 1~4、航班、住宿、清單)
+  // ------------------------------------------
   const tabs = document.querySelectorAll(".nav-tab");
   const panels = document.querySelectorAll(".tab-panel");
 
@@ -16,7 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 2. 劃掉打勾功能（限定只有包含 .check-icon 的項目才可打勾）
+  // ------------------------------------------
+  // (2) 劃掉打勾功能（限定包含 .check-icon 的項目）
+  // ------------------------------------------
   document.querySelectorAll(".check-item").forEach(item => {
     const key = item.getAttribute("data-key");
     const icon = item.querySelector(".check-icon");
@@ -46,7 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 3. 次級選單切換 (必買清單：Olive Young / 藥局 / 紀念品 / 隱形眼鏡)
+  // ------------------------------------------
+  // (3) 次級選單切換 (必買清單：Olive Young / 藥局 / 紀念品 / 隱形眼鏡)
+  // ------------------------------------------
   const subTabs = document.querySelectorAll(".sub-tab");
   const subPanels = document.querySelectorAll(".sub-panel");
 
@@ -62,7 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 4. 圖片點擊放大 (Lightbox：景點圖與商品圖通用)
+  // ------------------------------------------
+  // (4) 圖片點擊放大 (Lightbox：景點圖與商品圖通用)
+  // ------------------------------------------
   const imageModal = document.getElementById("imageModal");
   const modalImg = document.getElementById("modalImg");
   const modalClose = document.getElementById("modalClose");
@@ -97,164 +123,54 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
     }
   });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-  const filterBtns = document.querySelectorAll('#restaurant .filter-btn');
-  const items = document.querySelectorAll('#restaurant .check-item');
+  // ------------------------------------------
+  // (5) 整合區域分類按鈕篩選 (#restaurant, #A, #B, #D, #E, #F)
+  // ------------------------------------------
+  const filterContainers = ['#restaurant', '#A', '#B', '#D', '#E', '#F'];
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // 1. 切換按鈕 active 樣式
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  filterContainers.forEach(selector => {
+    const container = document.querySelector(selector);
+    if (!container) return;
 
-      const filterValue = btn.getAttribute('data-filter');
+    const filterBtns = container.querySelectorAll('.filter-btn');
+    const items = container.querySelectorAll('.check-item');
 
-      // 2. 篩選餐廳列表
-      items.forEach(item => {
-        const itemArea = item.getAttribute('data-area');
-        if (filterValue === 'all' || itemArea === filterValue) {
-          item.style.display = ''; // 恢復預設顯示
-        } else {
-          item.style.display = 'none'; // 隱藏非該區餐廳
-        }
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // 切換 active 樣式
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        // 篩選各卡片顯示狀態
+        items.forEach(item => {
+          const itemArea = item.getAttribute('data-area');
+          // 支援 "all"、"A-all"、"E-all" 等全選標籤，或是符合 data-area 的項目
+          if (filterValue === 'all' || filterValue.endsWith('-all') || itemArea === filterValue) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // 每次切換篩選，同步更新備選區塊與虛線外框
+        updateAltSections();
       });
     });
   });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-  const day1Panel = document.querySelector('#A');		// 修改'A'
-  if (!day1Panel) return;
-
-  const filterBtns = day1Panel.querySelectorAll('.filter-btn');
-  const items = day1Panel.querySelectorAll('.check-item');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // 1. 切換按鈕 active 樣式
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      // 2. 篩選 Day 1 景點列表
-      items.forEach(item => {
-        const itemArea = item.getAttribute('data-area');
-        
-        
-        if (filterValue === 'A-all' || itemArea === filterValue) {// 修改A'
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const day1Panel = document.querySelector('#B');		// 修改'A'
-  if (!day1Panel) return;
-
-  const filterBtns = day1Panel.querySelectorAll('.filter-btn');
-  const items = day1Panel.querySelectorAll('.check-item');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // 1. 切換按鈕 active 樣式
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      // 2. 篩選 Day 1 景點列表
-      items.forEach(item => {
-        const itemArea = item.getAttribute('data-area');
-        
-        
-        if (filterValue === 'B-all' || itemArea === filterValue) {// 修改A'
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const day1Panel = document.querySelector('#D');		// 修改'#day1'
-  if (!day1Panel) return;
-
-  const filterBtns = day1Panel.querySelectorAll('.filter-btn');
-  const items = day1Panel.querySelectorAll('.check-item');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // 1. 切換按鈕 active 樣式
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      // 2. 篩選 Day 1 景點列表
-      items.forEach(item => {
-        const itemArea = item.getAttribute('data-area');
-        
-        
-        if (filterValue === 'D-all' || itemArea === filterValue) {// 修改day1-all'
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const day1Panel = document.querySelector('#F');		// 修改'#day1'
-  if (!day1Panel) return;
-
-  const filterBtns = day1Panel.querySelectorAll('.filter-btn');
-  const items = day1Panel.querySelectorAll('.check-item');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // 1. 切換按鈕 active 樣式
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      // 2. 篩選 Day 1 景點列表
-      items.forEach(item => {
-        const itemArea = item.getAttribute('data-area');
-        
-        
-        if (filterValue === 'F-all' || itemArea === filterValue) {// 修改day1-all'
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  // 自動綁定所有代購金額輸入框
+  // ------------------------------------------
+  // (6) 自動綁定所有代購金額輸入框與 LocalStorage
+  // ------------------------------------------
   const bindAutoSavePrice = () => {
     document.querySelectorAll('.check-item[data-key]').forEach(item => {
       const itemKey = item.getAttribute('data-key');
-      
       const krwInput = item.querySelector('.save-krw');
       const twdInput = item.querySelector('.save-twd');
 
-      // 1. 韓幣自動讀取與儲存
+      // 韓幣讀取與儲存
       if (krwInput) {
         const krwKey = `price-krw-${itemKey}`;
         const savedKrw = localStorage.getItem(krwKey);
@@ -265,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // 2. 台幣自動讀取與儲存
+      // 台幣讀取與儲存
       if (twdInput) {
         const twdKey = `price-twd-${itemKey}`;
         const savedTwd = localStorage.getItem(twdKey);
@@ -279,4 +195,40 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   bindAutoSavePrice();
+
+  // 頁面初次載入時執行一次，確保備選方案顯示狀態正確
+  updateAltSections();
 });
+
+// ==========================================
+// 3. 平滑滾動至目標卡片函式
+// ==========================================
+function scrollToCard(cardKey) {
+  const targetCard = document.querySelector(`.check-item[data-key="${cardKey}"]`) || document.getElementById(`card-${cardKey}`);
+
+  if (!targetCard) return;
+
+  // 如果目標卡片被分類篩選隱藏（display: none），自動切換回「全部」按鈕
+  if (getComputedStyle(targetCard).display === 'none') {
+    const parentPanel = targetCard.closest('.tab-panel') || document;
+    const allBtn = parentPanel.querySelector('.filter-btn[data-filter="all"], .filter-btn[data-filter$="-all"]') ||
+                   Array.from(parentPanel.querySelectorAll('button, .tag')).find(el => el.textContent.includes('全部'));
+    if (allBtn) {
+      allBtn.click();
+    } else {
+      targetCard.style.display = '';
+      updateAltSections();
+    }
+  }
+
+  // 平滑滾動到目標卡片，保留頂部視距
+  setTimeout(() => {
+    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // 加上短暫高亮效果
+    targetCard.classList.add('highlight-pulse');
+    setTimeout(() => {
+      targetCard.classList.remove('highlight-pulse');
+    }, 1500);
+  }, 100);
+}
