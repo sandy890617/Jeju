@@ -12,17 +12,17 @@
     --bg-page: #fbf7f2;          /* 全局底色：輕柔燕麥奶 */
     --card-bg: #ffffff;          /* 卡片底色：純淨暖白 */
     --panel-bg: #fffdfa;         /* 手帳頁面：奶油紙色 */
-    
+
     --primary-orange: #ff782e;   /* 濟州鮮柑橘 */
     --primary-gradient: linear-gradient(135deg, #ff8c42 0%, #ff6b2b 100%);
     --accent-yellow: #fff3db;    /* 暖柚便利貼 */
     --accent-pink: #ffeae8;      /* 柔粉標籤 */
-    
+
     --text-main: #2d2621;        /* 主標題：深焙焦糖黑 */
     --text-body: #4a4038;        /* 正文：溫潤摩卡灰褐 */
     --text-sub: #8c7e73;         /* 副文字：淺焙暖灰 */
     --border-soft: #ede4dc;      /* 柔和分割線 */
-    
+
     --shadow-sm: 0 2px 8px rgba(168, 140, 118, 0.08);
     --shadow-md: 0 8px 24px rgba(168, 140, 118, 0.12);
     --shadow-hover: 0 12px 30px rgba(168, 140, 118, 0.18);
@@ -601,4 +601,626 @@ body {
   pointer-events: none; /* 避免擋住點擊 */
   z-index: 2;
   letter-spacing: 0.5px;
+}
+
+/* 當日時間軸外框卡片 */
+.day-timeline-card {
+	background: #ffffff;
+	border-radius: 16px;
+	padding: 14px 16px;
+	margin: 12px 0 16px 0;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+	border: 1px solid #f3ece4;
+}
+
+.timeline-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 13px;
+	font-weight: bold;
+	color: #5d4a43;
+	margin-bottom: 12px;
+	padding-bottom: 6px;
+	border-bottom: 1px dashed #eedfd4;
+}
+
+.timeline-badge {
+	font-size: 11px;
+	background: #fdf2eb;
+	color: #e36a2e;
+	padding: 2px 8px;
+	border-radius: 12px;
+	font-weight: normal;
+}
+
+/* 橫向滑動區（手機端滑動極順暢） */
+.timeline-scroll-container {
+	display: flex;
+	align-items: flex-start;
+	overflow-x: auto;
+	padding: 4px 4px 10px 4px;
+	scrollbar-width: thin;
+	-webkit-overflow-scrolling: touch;
+}
+
+.timeline-scroll-container::-webkit-scrollbar {
+	height: 4px;
+}
+.timeline-scroll-container::-webkit-scrollbar-thumb {
+	background: #ecdcd2;
+	border-radius: 4px;
+}
+
+/* 每個節點 */
+.timeline-step {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 82px;
+	flex-shrink: 0;
+	text-align: center;
+}
+
+.step-time {
+	font-size: 10px;
+	color: #9c8e87;
+	font-weight: 600;
+	margin-bottom: 4px;
+	white-space: nowrap;
+}
+
+.step-dot {
+	width: 32px;
+	height: 32px;
+	background: #fdf8f4;
+	border: 2px solid #ecdcd2;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	transition: all 0.2s ease;
+}
+
+.timeline-step.active .step-dot {
+	background: #ff7a3d;
+	border-color: #ff7a3d;
+	box-shadow: 0 0 0 3px rgba(255, 122, 61, 0.2);
+}
+
+.step-name {
+	font-size: 11px;
+	font-weight: bold;
+	color: #4b3e39;
+	margin-top: 6px;
+	white-space: normal;      /* 從 nowrap 改為 normal 允許換行 */
+	line-height: 1.25;        /* 縮小行高避免上下間距過大 */
+	max-width: 90px;          /* 限制最大寬度避免把節點撐太寬 */
+	word-break: keep-all;     /* 避免中文字在奇怪位置斷行 */
+}
+
+.step-duration {
+	font-size: 9px;
+	color: #ff7a3d;
+	background: #fff3ee;
+	padding: 1px 5px;
+	border-radius: 4px;
+	margin-top: 2px;
+}
+
+/* 連接線 */
+.step-line {
+	width: 22px;
+	height: 2px;
+	background: #eadfd7;
+	margin-top: 24px;
+	flex-shrink: 0;
+}
+
+/* 點擊跳轉後的卡片柔和強調動畫 */
+.check-item.highlight-pulse {
+	transition: all 0.3s ease;
+	outline: 2px solid #ff7a3d !important;
+	box-shadow: 0 0 15px rgba(255, 122, 61, 0.35) !important;
+}
+
+/* 卡片主體設為相對定位基準 */
+.check-item.has-top-right-map {
+  position: relative;
+}
+
+/* 右上角地圖按鈕定位與樣式 */
+.check-item.has-top-right-map .map-actions-top-right {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  margin: 0;
+  z-index: 2;
+}
+
+.check-item.has-top-right-map .map-actions-top-right .btn-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: #03c75a;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(3, 199, 90, 0.25);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.check-item.has-top-right-map .map-actions-top-right .btn-map:hover {
+  background-color: #02b150;
+  transform: translateY(-1px);
+}
+
+/* 標題與快捷資訊列保留右側避讓寬度，避免與按鈕重疊 */
+.check-item.has-top-right-map .card-title-row,
+.check-item.has-top-right-map .quick-meta-bar {
+  padding-right: 90px;
+}
+
+/* --- 上方時間資訊區重構 --- */
+.trip-time-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+/* 行程時間膠囊貼紙 */
+.trip-schedule-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff3ee;
+  color: #ea580c;
+  border: 1px solid #fed7aa;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 營業時間乾淨字串 */
+.trip-open-time {
+  font-size: 12px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #f1e9e2;
+  line-height: 1.4;
+}
+
+/* --- 下方推薦招牌卡片重構（告別死黃厚框） --- */
+.menu-recommend-box {
+  background: #faf6f0;
+  border-left: 3px solid #f97316;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 12px;
+}
+
+.menu-recommend-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #7c2d12;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.menu-recommend-content {
+  font-size: 13px;
+  color: #4b3e39;
+  line-height: 1.5;
+}
+
+/* 精緻手帳感小緞帶標籤：完美掛在卡片頂部邊框 */
+.border-top-badge {
+	position: absolute;
+	top: -12px;                      /* 剛好一半在卡片外、一半在卡片內 */
+	left: 24px;                      /* 靠左微調 */
+	background: #fff8f3;            /* 溫潤淡杏色 */
+	border: 1.5px solid #fed7aa;     /* 溫和橘色細邊框 */
+	color: #ea580c;                 /* 暖橘色字體 */
+	padding: 3px 10px;
+	border-radius: 14px;             /* 圓潤膠囊感 */
+	font-size: 11px;
+	font-weight: 700;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	box-shadow: 0 2px 5px rgba(234, 88, 12, 0.1); /* 柔和微立體陰影 */
+	z-index: 5;
+	line-height: 1;
+}
+
+/* 交通指南外層卡片 (E0 / 常駐) */
+.trans-card {
+  background: #ffffff;
+  border: 1px solid #efeae6;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 4px 20px rgba(139, 126, 116, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  color: #4a4542;
+  margin: 16px 0;
+}
+
+/* 標題與標籤區 */
+.trans-header {
+  margin-bottom: 14px;
+}
+.trans-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2d2a29;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.trans-title small {
+  font-size: 13px;
+  color: #8c8581;
+  font-weight: normal;
+}
+.trans-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.trans-tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  background: #f5f2f0;
+  color: #706965;
+}
+.trans-tag.must {
+  background: #fff0eb;
+  color: #e0533c;
+  font-weight: 600;
+}
+
+/* 警示 banner */
+.warn-banner {
+  background: #fff3f0;
+  border: 1px solid #ffe1d9;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  color: #c83c23;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.trans-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #615a56;
+  margin-bottom: 16px;
+}
+
+/* 行程方案區塊 */
+.scheme-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #3d3a38;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* BUS 方案主要卡片 */
+.bus-info-card {
+  background: #fbfaf8;
+  border: 1.5px solid #ede8e4;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.bus-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #e5dfda;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+.bus-info-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.bus-info-badge {
+  font-size: 11px;
+  background: #f0f9ff;
+  color: #0369a1;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* 票價 & 班次 雙欄 (Flex) 排版 */
+.bus-grid {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+.bus-grid-col {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #f0eae5;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.bus-grid-label {
+  font-size: 11px;
+  color: #8c8581;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 4px;
+}
+.bus-grid-value {
+  font-size: 12px;
+  color: #3d3a38;
+  font-weight: 500;
+}
+.bus-grid-value strong {
+  color: #1a1918;
+}
+
+/* 路線流程盒子 */
+.route-box {
+  background: #fffaf5;
+  border: 1px solid #ffd8c2;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.route-header {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #c2410c;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.route-flow {
+  font-size: 11px;
+  color: #7c2d12;
+  line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+.route-step {
+  background: #ffffff;
+  border: 1px solid #ffedd5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.route-arrow {
+  color: #fdba74;
+  font-weight: bold;
+}
+
+/* 註腳、小提醒 */
+.bus-tips {
+  font-size: 11px;
+  color: #8c8581;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* 方案 B：電動車 */
+.bike-info-card {
+  background: #ffffff;
+  border: 1px solid #ede8e4;
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.bike-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #d97706;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.bike-badge {
+  font-size: 10.5px;
+  background: #fef3c7;
+  color: #b45309;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.bike-text {
+  font-size: 12px;
+  color: #615a56;
+  line-height: 1.5;
+}
+
+/* 底部總結 */
+.trans-footer {
+  margin-top: 14px;
+  border-top: 1px dashed #e5dfda;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footer-tip {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #706965;
+  display: flex;
+  gap: 6px;
+}
+.footer-tip strong {
+  color: #3d3a38;
+}/* --- 牛島交通：方案 A & B 手帳雙卡模組 --- */
+.udo-plan-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* 方案小卡共通結構 */
+.udo-plan-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid #e7e5e4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 方案 A：公車專屬配色（清爽天藍系） */
+.plan-bus {
+  border-left: 4px solid #0284c7;
+  background: #fbfdfe;
+}
+.plan-bus .plan-title {
+  color: #0369a1;
+}
+.plan-bus .plan-badge {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+/* 方案 B：電動車專屬配色（溫暖珊瑚橘系） */
+.plan-bike {
+  border-left: 4px solid #ea580c;
+  background: #fffbf9;
+}
+.plan-bike .plan-title {
+  color: #c2410c;
+}
+.plan-bike .plan-badge {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+/* 卡片頂部 */
+.udo-plan-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.udo-plan-head .plan-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.udo-plan-head .plan-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* 關鍵條列資訊 */
+.plan-meta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.plan-pill {
+  font-size: 11px;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  color: #44403c;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* 逆時針路線盒 */
+.plan-route-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 6px;
+  padding: 7px 9px;
+  font-size: 11px;
+  color: #9a3412;
+  line-height: 1.45;
+}
+.plan-route-title {
+  font-weight: 700;
+  margin-bottom: 3px;
+  color: #c2410c;
+}
+.plan-route-steps {
+  color: #ea580c;
+}
+
+/* 說明內文 */
+.plan-desc {
+  font-size: 12px;
+  color: #57534e;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 底部注意提醒條（固定字級，避免被外層 h/strong 放大） */
+.plan-sub-tip {
+  font-size: 11px !important;
+  color: #78716c !important;
+  font-weight: normal !important;
+  background: rgba(0, 0, 0, 0.02);
+  padding: 5px 8px;
+  border-radius: 6px;
+  line-height: 1.4;
+  border: 1px dashed #e7e5e4;
+}
+.plan-sub-tip strong {
+  font-size: 11px !important;
+  color: #44403c !important;
+  font-weight: 600 !important;
 }
